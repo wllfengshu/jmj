@@ -1,0 +1,112 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.wllfengshu</groupId>
+    <artifactId>jmj</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.2.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <modules>
+        <module>jmj-eureka</module>
+        <module>jmj-config</module>
+<!--        <module>jmj-monitor</module>-->
+<!--        <module>jmj-log</module>-->
+        <module>jmj-gateway</module>
+        <module>jmj-common</module>
+        <module>jmj-provider</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring.boot.version>2.3.2.RELEASE</spring.boot.version>
+        <spring.cloud.version>Hoxton.SR8</spring.cloud.version>
+        <jmj.version>1.0</jmj.version>
+        <spring.gateway>2.2.2.RELEASE</spring.gateway>
+    </properties>
+
+    <developers>
+        <developer>
+            <name>王亮亮</name>
+            <url>https://blog.csdn.net/tiandixuanwuliang</url>
+            <email>wllfengshu@163.com</email>
+        </developer>
+    </developers>
+
+    <repositories>
+        <repository>
+            <id>maven-ali</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-gateway</artifactId>
+                <version>${spring.gateway}</version>
+            </dependency>
+            <!-- jmj start -->
+            <dependency>
+                <groupId>com.wllfengshu.jmj.common</groupId>
+                <artifactId>jmj-common-entity</artifactId>
+                <version>${jmj.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.wllfengshu.jmj.common</groupId>
+                <artifactId>jmj-common-util</artifactId>
+                <version>${jmj.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.wllfengshu.jmj.common</groupId>
+                <artifactId>jmj-security-config</artifactId>
+                <version>${jmj.version}</version>
+            </dependency>
+            <!-- jmj end -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>2.9.2</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>2.9.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.16.14</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.5</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

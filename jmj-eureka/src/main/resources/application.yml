@@ -1,0 +1,10 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: jmj-eureka
+  security:
+    user:
+      name: root
+      password: root
