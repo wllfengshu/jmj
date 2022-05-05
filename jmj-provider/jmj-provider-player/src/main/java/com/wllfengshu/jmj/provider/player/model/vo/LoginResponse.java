@@ -1,6 +1,5 @@
 package com.wllfengshu.jmj.provider.player.model.vo;
 
-import com.wllfengshu.jmj.common.entity.player.PlayerEntity;
 import lombok.Data;
 
 /**
@@ -12,5 +11,5 @@ public class LoginResponse {
 
     private String sessionId;
 
-    private PlayerEntity playerEntity;
+    private String playerEntity;
 }

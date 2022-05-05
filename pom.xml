@@ -16,8 +16,6 @@
     <modules>
         <module>jmj-eureka</module>
         <module>jmj-config-server</module>
-<!--        <module>jmj-monitor</module>-->
-<!--        <module>jmj-log</module>-->
         <module>jmj-gateway</module>
         <module>jmj-common</module>
         <module>jmj-provider</module>
@@ -38,8 +36,10 @@
         <spring.cloud.version>Hoxton.SR8</spring.cloud.version>
         <spring.zuul>2.0.0.RELEASE</spring.zuul>
         <spring.hystrix>1.4.5.RELEASE</spring.hystrix>
-        <commons.configuration>1.10</commons.configuration>
+        <spring.netflix-eureka>2.2.5.RELEASE</spring.netflix-eureka>
         <spring.feign>1.4.5.RELEASE</spring.feign>
+        <commons.configuration>1.10</commons.configuration>
+        <org.hdrhistogram>2.1.12</org.hdrhistogram>
     </properties>
 
     <dependencyManagement>
@@ -56,16 +56,83 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
                 <version>${spring.zuul}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>HdrHistogram</artifactId>
+                        <groupId>org.hdrhistogram</groupId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-hystrix</artifactId>
                 <version>${spring.hystrix}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>HdrHistogram</artifactId>
+                        <groupId>org.hdrhistogram</groupId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
                 <version>${spring.hystrix}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>HdrHistogram</artifactId>
+                        <groupId>org.hdrhistogram</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jsr305</artifactId>
+                        <groupId>com.google.code.findbugs</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-feign</artifactId>
+                <version>${spring.feign}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>jsr305</artifactId>
+                        <groupId>com.google.code.findbugs</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                <version>${spring.netflix-eureka}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>HdrHistogram</artifactId>
+                        <groupId>org.hdrhistogram</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+                <version>${spring.netflix-eureka}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>HdrHistogram</artifactId>
+                        <groupId>org.hdrhistogram</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jsr305</artifactId>
+                        <groupId>com.google.code.findbugs</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>stax2-api</artifactId>
+                        <groupId>org.codehaus.woodstox</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>woodstox-core</artifactId>
+                        <groupId>com.fasterxml.woodstox</groupId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>commons-configuration</groupId>
@@ -73,9 +140,9 @@
                 <version>${commons.configuration}</version>
             </dependency>
             <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-feign</artifactId>
-                <version>${spring.feign}</version>
+                <artifactId>HdrHistogram</artifactId>
+                <groupId>org.hdrhistogram</groupId>
+                <version>${org.hdrhistogram}</version>
             </dependency>
             <!-- spring end -->
             <!-- jmj start -->

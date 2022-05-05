@@ -1,6 +1,5 @@
 package com.wllfengshu.jmj.provider.player.web;
 
-import com.wllfengshu.jmj.common.entity.hall.HallEntity;
 import com.wllfengshu.jmj.provider.player.model.vo.LoginRequest;
 import com.wllfengshu.jmj.provider.player.model.vo.LoginResponse;
 import com.wllfengshu.jmj.provider.player.service.PlayerService;
@@ -39,11 +38,11 @@ public class PlayerController {
         playerService.logout(sessionId);
     }
 
-    @ApiOperation(value = "创建房间", httpMethod = "GET")
-    @GetMapping(value = "/createRoom")
-    public ResponseEntity<HallEntity> createRoom(@RequestParam(value = "username") String username) {
-        return new ResponseEntity<>(playerService.createRoom(username), HttpStatus.OK);
-    }
+//    @ApiOperation(value = "创建房间", httpMethod = "GET")
+//    @GetMapping(value = "/createRoom")
+//    public ResponseEntity<HallEntity> createRoom(@RequestParam(value = "username") String username) {
+//        return new ResponseEntity<>(playerService.createRoom(username), HttpStatus.OK);
+//    }
 
 //    @ApiOperation(value = "真人对战", httpMethod = "GET")
 //    @GetMapping(value = "/realPersonBattle")

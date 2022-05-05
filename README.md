@@ -1,6 +1,6 @@
 ## JmJ(Java MaJiang,Java麻将)
 
-> 参考：https://github.com/paascloud/paascloud-master
+> 参考：https://github.com/jmj/jmj-master
 
 ### 项目介绍
 ```
@@ -24,73 +24,73 @@
 
 
 ```
-├─paascloud-master----------------------------父项目，公共依赖
+├─jmj-master----------------------------父项目，公共依赖
 │  │
-│  ├─paascloud-eureka--------------------------微服务注册中心
+│  ├─jmj-eureka--------------------------微服务注册中心
 │  │
-│  ├─paascloud-discovery-----------------------微服务配置中心
+│  ├─jmj-config-----------------------微服务配置中心
 │  │
-│  ├─paascloud-monitor-------------------------微服务监控中心
+│  ├─jmj-monitor-------------------------微服务监控中心
 │  │
-│  ├─paascloud-zipkin--------------------------微服务日志采集中心
+│  ├─jmj-zipkin--------------------------微服务日志采集中心
 │  │
-│  ├─paascloud-gateway--------------------------微服务网关中心
+│  ├─jmj-gateway--------------------------微服务网关中心
 │  │
-│  ├─paascloud-provider
+│  ├─jmj-provider
 │  │  │
-│  │  ├─paascloud-provider-mdc------------------数据服务中心
+│  │  ├─jmj-provider-mdc------------------数据服务中心
 │  │  │
-│  │  ├─paascloud-provider-omc------------------订单服务中心
+│  │  ├─jmj-provider-omc------------------订单服务中心
 │  │  │
-│  │  ├─paascloud-provider-opc------------------对接服务中心
+│  │  ├─jmj-provider-opc------------------对接服务中心
 │  │  │
-│  │  ├─paascloud-provider-tpc------------------任务服务中心
+│  │  ├─jmj-provider-tpc------------------任务服务中心
 │  │  │
-│  │  └─paascloud-provider-uac------------------用户服务中心
+│  │  └─jmj-provider-uac------------------用户服务中心
 │  │
-│  ├─paascloud-provider-api
+│  ├─jmj-provider-api
 │  │  │
-│  │  ├─paascloud-provider-mdc-api------------------数据服务中心API
+│  │  ├─jmj-provider-mdc-api------------------数据服务中心API
 │  │  │
-│  │  ├─paascloud-provider-omc-api------------------订单服务中心API
+│  │  ├─jmj-provider-omc-api------------------订单服务中心API
 │  │  │
-│  │  ├─paascloud-provider-opc-api------------------对接服务中心API
+│  │  ├─jmj-provider-opc-api------------------对接服务中心API
 │  │  │
-│  │  ├─paascloud-provider-tpc-api------------------任务服务中心API
+│  │  ├─jmj-provider-tpc-api------------------任务服务中心API
 │  │  │
-│  │  ├─paascloud-provider-sdk-api------------------可靠消息服务API
+│  │  ├─jmj-provider-sdk-api------------------可靠消息服务API
 │  │  │
-│  │  └─paascloud-provider-uac-api------------------用户服务中心API
+│  │  └─jmj-provider-uac-api------------------用户服务中心API
 │  │
-│  ├─paascloud-common
+│  ├─jmj-common
 │  │  │
-│  │  ├─paascloud-common-base------------------公共POJO基础包
+│  │  ├─jmj-common-base------------------公共POJO基础包
 │  │  │
-│  │  ├─paascloud-common-config------------------公共配置包
+│  │  ├─jmj-common-config------------------公共配置包
 │  │  │
-│  │  ├─paascloud-common-core------------------微服务核心依赖包
+│  │  ├─jmj-common-core------------------微服务核心依赖包
 │  │  │
-│  │  ├─paascloud-common-util------------------公共工具包
+│  │  ├─jmj-common-util------------------公共工具包
 │  │  │
-│  │  ├─paascloud-common-zk------------------zookeeper配置
+│  │  ├─jmj-common-zk------------------zookeeper配置
 │  │  │
-│  │  ├─paascloud-security-app------------------公共无状态安全认证
+│  │  ├─jmj-security-app------------------公共无状态安全认证
 │  │  │
-│  │  ├─paascloud-security-core------------------安全服务核心包
+│  │  ├─jmj-security-core------------------安全服务核心包
 │  │  │
-│  │  └─paascloud-security-feign------------------基于auth2的feign配置
+│  │  └─jmj-security-feign------------------基于auth2的feign配置
 │  │
-│  ├─paascloud-generator
+│  ├─jmj-generator
 │  │  │
-│  │  ├─paascloud-generator-mdc------------------数据服务中心Mybatis Generator
+│  │  ├─jmj-generator-mdc------------------数据服务中心Mybatis Generator
 │  │  │
-│  │  ├─paascloud-generator-omc------------------数据服务中心Mybatis Generator
+│  │  ├─jmj-generator-omc------------------数据服务中心Mybatis Generator
 │  │  │
-│  │  ├─paascloud-generator-opc------------------数据服务中心Mybatis Generator
+│  │  ├─jmj-generator-opc------------------数据服务中心Mybatis Generator
 │  │  │
-│  │  ├─paascloud-generator-tpc------------------数据服务中心Mybatis Generator
+│  │  ├─jmj-generator-tpc------------------数据服务中心Mybatis Generator
 │  │  │
-│  │  └─paascloud-generator-uac------------------数据服务中心Mybatis Generator
+│  │  └─jmj-generator-uac------------------数据服务中心Mybatis Generator
 
 
 ```
@@ -103,7 +103,8 @@
 
 ### 传送门
 
-学习地址：https://www.bilibili.com/video/BV1Et411c7JD?p=59&spm_id_from=pageDriver
+学习视频：https://www.bilibili.com/video/BV1Et411c7JD?p=59&spm_id_from=pageDriver
+学习项目：https://github.com/paascloud/paascloud-master
 
 ### 架构图
 

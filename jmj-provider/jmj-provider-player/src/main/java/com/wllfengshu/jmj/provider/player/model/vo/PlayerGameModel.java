@@ -1,7 +1,5 @@
 package com.wllfengshu.jmj.provider.player.model.vo;
 
-import com.wllfengshu.jmj.common.entity.player.PlayerEntity;
-
 import java.util.List;
 
 /**
@@ -15,7 +13,7 @@ public class PlayerGameModel {
     /**
      * 一局游戏的人集合
      */
-    private List<PlayerEntity> playerEntities;
+    private List<String> playerEntities;
 
     /**
      * 玩家数量
