@@ -4,12 +4,8 @@ server:
 spring:
   application:
     name: gateway-server
-  profiles:
-    active: native
-  cloud:
-    gateway:
-      enabled: true
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
+
+zuul:
+  routes:
+    gateway-server.path: "/gateway/**"
+    gateway-server.url: "forward:/gateway"

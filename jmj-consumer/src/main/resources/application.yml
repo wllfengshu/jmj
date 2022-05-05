@@ -1,0 +1,13 @@
+server:
+  port: 7001
+
+spring:
+  application:
+    name: consumer-server
+
+# SpringBoot监控端点访问权限，可以配置为接口地址，配置为*表示全部可以访问
+management:
+  endpoint:
+    web:
+      exposure:
+        include: "*"

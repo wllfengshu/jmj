@@ -1,0 +1,12 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:root@localhost:8000/eureka/
+
+spring:
+  cloud:
+    config:
+      name: test
+      profile: dev
+      label: master
+      uri: http://localhost:8002/

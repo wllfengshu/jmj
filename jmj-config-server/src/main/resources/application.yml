@@ -1,0 +1,14 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: config-server-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/tiandixuanwuliang/test
+          search-paths: config-center
+          username: wllfengshu@163.com
+          password: 111111

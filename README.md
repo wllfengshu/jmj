@@ -93,56 +93,18 @@
 │  │  └─paascloud-generator-uac------------------数据服务中心Mybatis Generator
 
 
-
-
 ```
-
-
-### 特殊说明
-
-
-```
-这里做一个解释由于微服务的拆分受制于服务器，这里我做了微服务的合并，比如OAuth2的认证服务中心和用户中心合并，
-统一的one service服务中心和用户认证中心合并，支付中心和订单中心合并，其实这也是不得已而为之，
-只是做了业务微服务中心的合并，并没有将架构中的 注册中心 监控中心 服务发现中心进行合并。
-```
-
 
 ### 作者介绍
 
-```
-Spring Cloud 爱好者
-```
-
 ### QQ群交流
- ①：
- ⑨：……    
 
 ### FAQ
-* [相关问题](https://github.com/paascloud/paascloud-master/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98)
-
-## 配套项目
-
-```
-后端项目：https://github.com/paascloud/paascloud-master 
-         https://gitee.com/paascloud/paascloud-master
-登录入口：https://github.com/paascloud/paascloud-login-web
-         https://gitee.com/paascloud/paascloud-login-web
-后端入口：https://github.com/paascloud/paascloud-admin-web
-         https://gitee.com/paascloud/paascloud-admin-web
-前端入口：https://github.com/paascloud/paascloud-mall-web
-         https://gitee.com/paascloud/paascloud-mall-web
-```
 
 ### 传送门
 
+学习地址：https://www.bilibili.com/video/BV1Et411c7JD?p=59&spm_id_from=pageDriver
 
 ### 架构图
-
-![项目架构图](http://img.paascloud.net/paascloud/doc/paascloud-project.png)
-
-
-
-
 
 

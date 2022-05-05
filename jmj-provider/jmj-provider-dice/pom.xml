@@ -1,23 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>com.wllfengshu.jmj.provider</groupId>
         <artifactId>jmj-provider</artifactId>
         <version>1.0</version>
     </parent>
+
+    <modelVersion>4.0.0</modelVersion>
     <artifactId>jmj-provider-dice</artifactId>
     <packaging>jar</packaging>
-
     <name>jmj-provider-dice</name>
     <description>骰子</description>
 
     <dependencies>
         <dependency>
-            <groupId>com.wllfengshu.jmj.common</groupId>
-            <artifactId>jmj-common-entity</artifactId>
+            <groupId>com.wllfengshu.jmj.provider.api</groupId>
+            <artifactId>jmj-provider-api-dice</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>${artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+</repositories>
 </project>

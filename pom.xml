@@ -1,11 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.wllfengshu</groupId>
-    <artifactId>jmj</artifactId>
-    <version>1.0</version>
-    <packaging>pom</packaging>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -13,51 +7,44 @@
         <relativePath/>
     </parent>
 
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.wllfengshu</groupId>
+    <artifactId>jmj</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+
     <modules>
         <module>jmj-eureka</module>
-        <module>jmj-config</module>
+        <module>jmj-config-server</module>
 <!--        <module>jmj-monitor</module>-->
 <!--        <module>jmj-log</module>-->
         <module>jmj-gateway</module>
         <module>jmj-common</module>
         <module>jmj-provider</module>
+        <module>jmj-consumer</module>
+        <module>jmj-hystrix-dashboard</module>
+        <module>jmj-provider-api</module>
+        <module>jmj-config-client</module>
     </modules>
 
     <properties>
+        <jmj.version>1.0</jmj.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-        <spring.boot.version>2.3.2.RELEASE</spring.boot.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <java.version>11</java.version>
+        <spring.boot.version>2.0.3.RELEASE</spring.boot.version>
         <spring.cloud.version>Hoxton.SR8</spring.cloud.version>
-        <jmj.version>1.0</jmj.version>
-        <spring.gateway>2.2.2.RELEASE</spring.gateway>
+        <spring.zuul>2.0.0.RELEASE</spring.zuul>
+        <spring.hystrix>1.4.5.RELEASE</spring.hystrix>
+        <commons.configuration>1.10</commons.configuration>
+        <spring.feign>1.4.5.RELEASE</spring.feign>
     </properties>
-
-    <developers>
-        <developer>
-            <name>王亮亮</name>
-            <url>https://blog.csdn.net/tiandixuanwuliang</url>
-            <email>wllfengshu@163.com</email>
-        </developer>
-    </developers>
-
-    <repositories>
-        <repository>
-            <id>maven-ali</id>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>fail</checksumPolicy>
-            </snapshots>
-        </repository>
-    </repositories>
 
     <dependencyManagement>
         <dependencies>
+            <!-- spring start -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -67,15 +54,31 @@
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-gateway</artifactId>
-                <version>${spring.gateway}</version>
+                <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+                <version>${spring.zuul}</version>
             </dependency>
-            <!-- jmj start -->
             <dependency>
-                <groupId>com.wllfengshu.jmj.common</groupId>
-                <artifactId>jmj-common-entity</artifactId>
-                <version>${jmj.version}</version>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-hystrix</artifactId>
+                <version>${spring.hystrix}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
+                <version>${spring.hystrix}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-configuration</groupId>
+                <artifactId>commons-configuration</artifactId>
+                <version>${commons.configuration}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-feign</artifactId>
+                <version>${spring.feign}</version>
+            </dependency>
+            <!-- spring end -->
+            <!-- jmj start -->
             <dependency>
                 <groupId>com.wllfengshu.jmj.common</groupId>
                 <artifactId>jmj-common-util</artifactId>
@@ -84,6 +87,11 @@
             <dependency>
                 <groupId>com.wllfengshu.jmj.common</groupId>
                 <artifactId>jmj-security-config</artifactId>
+                <version>${jmj.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.wllfengshu.jmj.provider.api</groupId>
+                <artifactId>jmj-provider-api-dice</artifactId>
                 <version>${jmj.version}</version>
             </dependency>
             <!-- jmj end -->
@@ -100,7 +108,7 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.16.14</version>
+                <version>1.18.20</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
@@ -109,4 +117,26 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <developers>
+        <developer>
+            <name>王亮亮</name>
+            <url>https://blog.csdn.net/tiandixuanwuliang</url>
+            <email>wllfengshu@163.com</email>
+        </developer>
+    </developers>
 </project>

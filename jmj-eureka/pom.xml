@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.wllfengshu.jmj.eureka</groupId>
-    <artifactId>jmj-eureka</artifactId>
-    <packaging>jar</packaging>
-
-    <name>jmj-eureka</name>
-    <description>注册中心</description>
-
     <parent>
         <groupId>com.wllfengshu</groupId>
         <artifactId>jmj</artifactId>
         <version>1.0</version>
     </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.wllfengshu.jmj.eureka</groupId>
+    <artifactId>jmj-eureka</artifactId>
+    <packaging>jar</packaging>
+    <name>jmj-eureka</name>
+    <description>注册中心</description>
 
     <dependencies>
         <dependency>
@@ -35,4 +34,18 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+</repositories>
 </project>
