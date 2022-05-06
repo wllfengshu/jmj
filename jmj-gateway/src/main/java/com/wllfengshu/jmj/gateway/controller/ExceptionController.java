@@ -1,13 +1,18 @@
 package com.wllfengshu.jmj.gateway.controller;
 
-import com.netflix.zuul.context.RequestContext;
-import com.netflix.zuul.exception.ZuulException;
+import com.wllfengshu.jmj.gateway.util.TokenUtil;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 public class ExceptionController implements ErrorController {
+
+    @Value("${pageErrorMsg:Service exception, <a href='http://localhost:8080'>Please click</a>}")
+    private String pageErrorMsg;
 
     @Override
     public String getErrorPath() {
@@ -16,9 +21,8 @@ public class ExceptionController implements ErrorController {
     }
 
     @RequestMapping("/error")
-    public Object error() {
-        RequestContext ctx = RequestContext.getCurrentContext();
-        ZuulException exception = (ZuulException)ctx.getThrowable();
-        return exception.nStatusCode + "--" + exception.getMessage();
+    public String error() {
+        log.info("Found error, token = {}", TokenUtil.giveToken());
+        return pageErrorMsg;
     }
 }

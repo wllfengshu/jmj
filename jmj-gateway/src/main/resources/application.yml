@@ -3,9 +3,9 @@ server:
 
 spring:
   application:
-    name: gateway-server
+    name: jmj-gateway
+  thymeleaf:
+    prefix: classpath:/templates/
 
 zuul:
-  routes:
-    gateway-server.path: "/gateway/**"
-    gateway-server.url: "forward:/gateway"
+  prefix: /gateway

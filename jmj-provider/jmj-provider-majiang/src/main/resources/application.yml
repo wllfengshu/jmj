@@ -3,4 +3,4 @@ server:
 
 spring:
   application:
-    name: provider-majiang-server
+    name: jmj-provider-majiang

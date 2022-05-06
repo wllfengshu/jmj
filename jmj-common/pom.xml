@@ -16,5 +16,13 @@
     <modules>
         <module>jmj-common-util</module>
         <module>jmj-common-config</module>
+        <module>jmj-common-entity</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
 </project>

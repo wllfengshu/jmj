@@ -3,8 +3,6 @@ package com.wllfengshu.jmj.provider.player.web;
 import com.wllfengshu.jmj.provider.player.model.vo.LoginRequest;
 import com.wllfengshu.jmj.provider.player.model.vo.LoginResponse;
 import com.wllfengshu.jmj.provider.player.service.PlayerService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,11 +11,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 /**
+ * 玩家
+ *
  * @author wangll
  * @date 2022-02-13 20:03
  */
 @Slf4j
-@Api(value = "Player", tags = "玩家")
 @RestController
 @RequestMapping("/player/")
 @RequiredArgsConstructor
@@ -26,13 +25,11 @@ public class PlayerController {
     @NonNull
     private PlayerService playerService;
 
-    @ApiOperation(value = "登陆", httpMethod = "POST")
     @PostMapping(value = "/login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
         return new ResponseEntity<>(playerService.login(loginRequest), HttpStatus.OK);
     }
 
-    @ApiOperation(value = "登出", httpMethod = "POST")
     @PostMapping(value = "/logout")
     public void logout(@RequestHeader(value = "sessionId") String sessionId) {
         playerService.logout(sessionId);

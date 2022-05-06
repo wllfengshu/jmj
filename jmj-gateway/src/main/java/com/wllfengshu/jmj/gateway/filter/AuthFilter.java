@@ -1,11 +1,9 @@
 package com.wllfengshu.jmj.gateway.filter;
 
 import com.netflix.zuul.ZuulFilter;
-import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author wangll
@@ -13,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Configuration
 public class AuthFilter extends ZuulFilter {
+
+    @Value("${pageNoPermissionMsg:No Permission, <a href='http://localhost:8080'>Please click</a>}")
+    private String pageNoPermissionMsg;
 
     @Override
     public String filterType() {
@@ -34,16 +35,23 @@ public class AuthFilter extends ZuulFilter {
 
     @Override
     public Object run() throws ZuulException {
-        RequestContext ctx = RequestContext.getCurrentContext();
+//        RequestContext rc = RequestContext.getCurrentContext();
+//        String b1 = rc.getResponseBody();
+//        rc.setResponseBody("111111111111111111111111111111111111");
+////        rc.set
+//        String b2 = rc.getResponseBody();
+//
+//        String token = TokenUtil.giveToken();
+//        if (StringUtils.isEmpty(token)) {
+//            RequestContext rc = RequestContext.getCurrentContext();
+//            rc.setSendZuulResponse(false);
+//            rc.setResponseStatusCode(401);
+//            rc.addZuulResponseHeader("Content-Type","text/html;charset=utf-8");
+//            rc.setResponseBody("No Permission");
+//
+//            return null;
+//        }
 
-        HttpServletRequest request = ctx.getRequest();
-        String token = request.getParameter("token");
-        if (token == null) {
-            ctx.setSendZuulResponse(false);
-            ctx.setResponseStatusCode(401);
-            ctx.addZuulResponseHeader("content-type","text/html;charset=utf-8");
-            ctx.setResponseBody("非法访问");
-        }
         return null;
     }
 }

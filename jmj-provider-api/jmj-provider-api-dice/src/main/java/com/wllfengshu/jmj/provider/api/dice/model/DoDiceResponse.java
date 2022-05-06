@@ -1,6 +1,7 @@
 package com.wllfengshu.jmj.provider.api.dice.model;
 
 import com.wllfengshu.jmj.provider.api.dice.model.entity.DiceEntity;
+import lombok.Data;
 
 import java.util.List;
 
@@ -8,6 +9,7 @@ import java.util.List;
  * @author wangll
  * @date 2022-05-04 21:27
  */
+@Data
 public class DoDiceResponse {
 
     /**

@@ -104,12 +104,6 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
                 <version>${spring.netflix-eureka}</version>
-                <exclusions>
-                    <exclusion>
-                        <artifactId>HdrHistogram</artifactId>
-                        <groupId>org.hdrhistogram</groupId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -147,13 +141,18 @@
             <!-- spring end -->
             <!-- jmj start -->
             <dependency>
-                <groupId>com.wllfengshu.jmj.common</groupId>
+                <groupId>com.wllfengshu.jmj.common.util</groupId>
                 <artifactId>jmj-common-util</artifactId>
                 <version>${jmj.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.wllfengshu.jmj.common</groupId>
-                <artifactId>jmj-security-config</artifactId>
+                <groupId>com.wllfengshu.jmj.common.config</groupId>
+                <artifactId>jmj-common-config</artifactId>
+                <version>${jmj.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.wllfengshu.jmj.common.entity</groupId>
+                <artifactId>jmj-common-entity</artifactId>
                 <version>${jmj.version}</version>
             </dependency>
             <dependency>

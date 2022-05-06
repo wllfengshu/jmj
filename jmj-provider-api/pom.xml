@@ -29,5 +29,9 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.wllfengshu.jmj.common.entity</groupId>
+            <artifactId>jmj-common-entity</artifactId>
+        </dependency>
     </dependencies>
 </project>
