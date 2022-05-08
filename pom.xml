@@ -166,6 +166,11 @@
                 <version>${jmj.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.wllfengshu.jmj.common.api</groupId>
+                <artifactId>jmj-common-api</artifactId>
+                <version>${jmj.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.wllfengshu.jmj.provider.api.dice</groupId>
                 <artifactId>jmj-provider-api-dice</artifactId>
                 <version>1.0</version>

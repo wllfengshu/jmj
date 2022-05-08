@@ -1,7 +1,7 @@
 eureka:
   client:
     service-url:
-      defaultZone: http://root:root@localhost:8000/eureka/
+      defaultZone: http://root:root@jmj:8000/eureka/
 
 spring:
   cloud:
@@ -9,4 +9,4 @@ spring:
       name: test
       profile: dev
       label: master
-      uri: http://localhost:8002/
+      uri: http://jmj:8002/

@@ -17,6 +17,7 @@
         <module>jmj-common-util</module>
         <module>jmj-common-config</module>
         <module>jmj-common-entity</module>
+        <module>jmj-common-api</module>
     </modules>
 
     <dependencies>

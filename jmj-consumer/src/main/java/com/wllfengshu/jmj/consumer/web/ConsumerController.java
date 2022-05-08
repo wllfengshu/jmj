@@ -34,7 +34,6 @@ public class ConsumerController {
             commandProperties={@HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds", value="5000")})
     public String test() {
         GiveDiceRequest request = new GiveDiceRequest();
-        request.setUsername("aaaaaa");
         GiveDiceResponse response = diceService.giveDice(request);
         response.setTexturePoint1Url("我是消费者添加的数据");
         return response.toString();

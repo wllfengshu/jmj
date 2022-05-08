@@ -9,5 +9,5 @@ import lombok.Data;
  */
 @Data
 public class GiveDiceRequest extends GatewayEntity {
-
+private String aaa;
 }

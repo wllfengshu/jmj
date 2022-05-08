@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,12 +27,12 @@ public class DiceController {
     private DiceService diceService;
 
     @PostMapping(value = "/giveDice")
-    public GiveDiceResponse giveDice(GiveDiceRequest request) {
+    public GiveDiceResponse giveDice(@RequestBody GiveDiceRequest request) {
         return diceService.giveDice(request);
     }
 
     @PostMapping(value = "/doDice")
-    public DoDiceResponse doDice(DoDiceRequest request) {
+    public DoDiceResponse doDice(@RequestBody DoDiceRequest request) {
         return diceService.doDice(request);
     }
 }

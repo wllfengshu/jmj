@@ -1,5 +1,6 @@
 package com.wllfengshu.jmj.gateway.filter;
 
+import com.alibaba.fastjson.JSON;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
@@ -27,7 +28,7 @@ import javax.servlet.http.HttpServletRequest;
 @Configuration
 public class AuthFilter extends ZuulFilter {
 
-    @Value("${pageNoPermissionMsg:No Permission, <a href='http://localhost:8080'>Please click</a>}")
+    @Value("${page.msg.NoPermission:No Permission, <a href='http://jmj:8080'>Please click</a>}")
     private String pageNoPermissionMsg;
     @Autowired
     private PlayerService playerService;
@@ -87,7 +88,7 @@ public class AuthFilter extends ZuulFilter {
         gatewayEntity.setRequestId(CustomStringUtils.giveUuid());
         gatewayEntity.setLoginTime(System.currentTimeMillis());
         gatewayEntity.setPlayerEntity(playerEntity);
-        String loginInfo = gatewayEntity.toString();
+        String loginInfo = JSON.toJSONString(gatewayEntity);
         log.info("[request-routingSucceeded] = {}", loginInfo);
         rc.addZuulRequestHeader(GatewayConstant.LOGIN_INFO, loginInfo);
         return null;

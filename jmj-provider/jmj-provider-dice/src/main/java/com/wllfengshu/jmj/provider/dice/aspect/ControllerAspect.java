@@ -9,6 +9,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.cglib.beans.BeanCopier;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -28,16 +29,14 @@ public class ControllerAspect {
     public Object setupUserInfo(ProceedingJoinPoint pjp) throws Throwable {
         // 获取方法参数值数组
         Object[] paramArray = pjp.getArgs();
-        log.info("[request1] = {}", JSON.toJSONString(paramArray));
         // 获取方法参数类型数组
-        MethodSignature methodSignature = (MethodSignature) pjp.getSignature();
-        Class<?>[] paramTypeArray = methodSignature.getParameterTypes();
-        log.info("[request2] = {}", JSON.toJSONString(paramTypeArray));
+        Class<?>[] paramTypeArray = ((MethodSignature) pjp.getSignature()).getParameterTypes();
         if (ArrayUtils.isEmpty(paramArray)
             || ArrayUtils.isEmpty(paramTypeArray)) {
             return pjp.proceed();
         }
         log.info("[request] = {}", JSON.toJSONString(paramArray));
+
         // 只允许一个入参，否则不处理
         if (paramTypeArray.length != 1) {
             return pjp.proceed();
@@ -47,23 +46,41 @@ public class ControllerAspect {
             return pjp.proceed();
         }
 
-//
-//        paramTypeArray[0]
+        // 给入参赋值
+        Object inputObject = paramArray[0];
+        Class<?> inputClass = paramTypeArray[0];
+        if (null == inputObject) {
+            inputObject = inputClass.getDeclaredConstructor().newInstance();
+        }
+        GatewayEntity gatewayEntity = this.giveGatewayEntity();
+        BeanCopier beanCopier = BeanCopier.create(GatewayEntity.class, GatewayEntity.class, false);
+        beanCopier.copy(gatewayEntity, inputObject, null);
 
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        String loginInfo = request.getHeader(GatewayConstant.LOGIN_INFO);
-
-//
-//
-//        for (int i = 0; i < paramArray.length; i++) {
-//            for (int j = 0; j < pa; j++) {
-//
-//            }
-//        }
-
+        paramArray[0] = inputObject;
         Object result = pjp.proceed(paramArray);
-        log.info("响应结果为{}", JSON.toJSONString(result));
+        log.info("[response] = {}", JSON.toJSONString(result));
         return result;
+    }
+
+    /**
+     * 获取gateway请求信息
+     *
+     * @return
+     */
+    private GatewayEntity giveGatewayEntity() {
+        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        if (null == requestAttributes) {
+            log.error("[giveGatewayEntity error, requestAttributes is null]");
+            return new GatewayEntity();
+        }
+        HttpServletRequest request = requestAttributes.getRequest();
+        String loginInfo = request.getHeader(GatewayConstant.LOGIN_INFO);
+        GatewayEntity gatewayEntity = JSON.parseObject(loginInfo, GatewayEntity.class);
+        if (null == gatewayEntity) {
+            log.error("[giveGatewayEntity error, gatewayEntity is null]");
+            return new GatewayEntity();
+        }
+        return gatewayEntity;
     }
 
 }

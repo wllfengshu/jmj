@@ -7,6 +7,7 @@ import com.wllfengshu.jmj.provider.api.player.model.LoginRequest;
 import com.wllfengshu.jmj.provider.api.player.model.LoginResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  * @author wangll
@@ -16,8 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 public interface PlayerService {
 
     @PostMapping(value = "/login")
-    LoginResponse login(LoginRequest request);
+    LoginResponse login(@RequestBody LoginRequest request);
 
     @PostMapping(value = "/givePlayerByToken")
-    GivePlayerByTokenResponse givePlayerByToken(GivePlayerByTokenRequest request);
+    GivePlayerByTokenResponse givePlayerByToken(@RequestBody GivePlayerByTokenRequest request);
 }

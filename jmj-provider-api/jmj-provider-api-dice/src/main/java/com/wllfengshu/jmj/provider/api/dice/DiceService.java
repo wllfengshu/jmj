@@ -6,6 +6,7 @@ import com.wllfengshu.jmj.provider.api.dice.model.GiveDiceRequest;
 import com.wllfengshu.jmj.provider.api.dice.model.GiveDiceResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  * @author wangll
@@ -15,8 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 public interface DiceService {
 
     @PostMapping(value = "/giveDice")
-    GiveDiceResponse giveDice(GiveDiceRequest request);
+    GiveDiceResponse giveDice(@RequestBody GiveDiceRequest request);
 
     @PostMapping(value = "/doDice")
-    DoDiceResponse doDice(DoDiceRequest request);
+    DoDiceResponse doDice(@RequestBody DoDiceRequest request);
 }

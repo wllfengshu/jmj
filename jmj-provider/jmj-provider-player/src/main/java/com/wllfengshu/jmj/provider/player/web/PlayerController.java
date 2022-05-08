@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,12 +29,12 @@ public class PlayerController {
     private PlayerService playerService;
 
     @PostMapping(value = "/login")
-    public LoginResponse login(LoginRequest request) {
+    public LoginResponse login(@RequestBody LoginRequest request) {
         return playerService.login(request);
     }
 
     @PostMapping(value = "/givePlayerByToken")
-    public GivePlayerByTokenResponse givePlayerByToken(GivePlayerByTokenRequest request) {
+    public GivePlayerByTokenResponse givePlayerByToken(@RequestBody GivePlayerByTokenRequest request) {
         return playerService.givePlayerByToken(request);
     }
 
