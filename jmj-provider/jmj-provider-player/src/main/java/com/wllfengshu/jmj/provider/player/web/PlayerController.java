@@ -1,14 +1,16 @@
 package com.wllfengshu.jmj.provider.player.web;
 
-import com.wllfengshu.jmj.provider.player.model.vo.LoginRequest;
-import com.wllfengshu.jmj.provider.player.model.vo.LoginResponse;
-import com.wllfengshu.jmj.provider.player.service.PlayerService;
-import lombok.NonNull;
+import com.wllfengshu.jmj.provider.api.player.PlayerService;
+import com.wllfengshu.jmj.provider.api.player.model.GivePlayerByTokenRequest;
+import com.wllfengshu.jmj.provider.api.player.model.GivePlayerByTokenResponse;
+import com.wllfengshu.jmj.provider.api.player.model.LoginRequest;
+import com.wllfengshu.jmj.provider.api.player.model.LoginResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 玩家
@@ -18,22 +20,27 @@ import org.springframework.web.bind.annotation.*;
  */
 @Slf4j
 @RestController
-@RequestMapping("/player/")
+@RequestMapping("/")
 @RequiredArgsConstructor
 public class PlayerController {
 
-    @NonNull
+    @Autowired
     private PlayerService playerService;
 
     @PostMapping(value = "/login")
-    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
-        return new ResponseEntity<>(playerService.login(loginRequest), HttpStatus.OK);
+    public LoginResponse login(LoginRequest request) {
+        return playerService.login(request);
     }
 
-    @PostMapping(value = "/logout")
-    public void logout(@RequestHeader(value = "sessionId") String sessionId) {
-        playerService.logout(sessionId);
+    @PostMapping(value = "/givePlayerByToken")
+    public GivePlayerByTokenResponse givePlayerByToken(GivePlayerByTokenRequest request) {
+        return playerService.givePlayerByToken(request);
     }
+
+//    @PostMapping(value = "/logout")
+//    public void logout(@RequestHeader(value = "sessionId") String sessionId) {
+//        playerService.logout(sessionId);
+//    }
 
 //    @ApiOperation(value = "创建房间", httpMethod = "GET")
 //    @GetMapping(value = "/createRoom")

@@ -12,6 +12,7 @@
     <artifactId>jmj-gateway</artifactId>
     <packaging>jar</packaging>
     <name>jmj-gateway</name>
+    <version>1.0</version>
     <description>网关管理</description>
 
     <dependencies>
@@ -32,8 +33,16 @@
             <artifactId>jmj-common-entity</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.wllfengshu.jmj.common.util</groupId>
+            <artifactId>jmj-common-util</artifactId>
+        </dependency>
+        <dependency>
             <artifactId>HdrHistogram</artifactId>
             <groupId>org.hdrhistogram</groupId>
+        </dependency>
+        <dependency>
+            <groupId>com.wllfengshu.jmj.provider.api.player</groupId>
+            <artifactId>jmj-provider-api-player</artifactId>
         </dependency>
     </dependencies>
 

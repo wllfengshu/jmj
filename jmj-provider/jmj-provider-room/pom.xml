@@ -8,9 +8,11 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
+    <groupId>com.wllfengshu.jmj.provider.room</groupId>
     <artifactId>jmj-provider-room</artifactId>
     <packaging>jar</packaging>
     <name>jmj-provider-room</name>
+    <version>1.0</version>
     <description>房间</description>
 
 </project>

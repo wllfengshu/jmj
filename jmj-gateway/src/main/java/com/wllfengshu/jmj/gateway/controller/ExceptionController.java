@@ -1,6 +1,5 @@
 package com.wllfengshu.jmj.gateway.controller;
 
-import com.wllfengshu.jmj.gateway.util.TokenUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.error.ErrorController;
@@ -22,7 +21,7 @@ public class ExceptionController implements ErrorController {
 
     @RequestMapping("/error")
     public String error() {
-        log.info("Found error, token = {}", TokenUtil.giveToken());
+        log.info("Found error");
         return pageErrorMsg;
     }
 }

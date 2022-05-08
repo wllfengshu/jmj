@@ -1,4 +1,4 @@
-package com.wllfengshu.jmj.provider.player.model.vo;
+package com.wllfengshu.jmj.provider.api.player.model;
 
 import lombok.Data;
 

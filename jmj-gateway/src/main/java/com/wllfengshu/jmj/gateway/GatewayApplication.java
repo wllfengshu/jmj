@@ -3,6 +3,7 @@ package com.wllfengshu.jmj.gateway;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author wangll
@@ -10,6 +11,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
  */
 @EnableZuulProxy
 @SpringBootApplication
+@EnableFeignClients(basePackages = "com.wllfengshu.jmj.provider.api")
 public class GatewayApplication {
 
 	public static void main(String[] args) {

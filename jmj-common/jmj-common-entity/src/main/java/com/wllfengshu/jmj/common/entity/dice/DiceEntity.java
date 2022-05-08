@@ -1,4 +1,4 @@
-package com.wllfengshu.jmj.provider.api.dice.model.entity;
+package com.wllfengshu.jmj.common.entity.dice;
 
 import lombok.Data;
 

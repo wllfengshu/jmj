@@ -1,6 +1,6 @@
 package com.wllfengshu.jmj.provider.api.dice.model;
 
-import com.wllfengshu.jmj.common.entity.gateway.GatewayHeader;
+import com.wllfengshu.jmj.common.entity.gateway.GatewayEntity;
 import lombok.Data;
 
 /**
@@ -8,7 +8,7 @@ import lombok.Data;
  * @date 2022-05-04 21:27
  */
 @Data
-public class DoDiceRequest extends GatewayHeader {
+public class DoDiceRequest extends GatewayEntity {
 
     /**
      * 骰子数量

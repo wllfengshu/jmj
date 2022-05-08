@@ -10,7 +10,7 @@ import lombok.Data;
  * @date 2022-05-06 9:23
  */
 @Data
-public class GatewayHeader {
+public class GatewayEntity {
 
     /**
      * 请求唯一标识
@@ -20,7 +20,7 @@ public class GatewayHeader {
     /**
      * 登陆时间
      */
-    private String loginTime;
+    private Long loginTime;
 
     /**
      * 用户信息

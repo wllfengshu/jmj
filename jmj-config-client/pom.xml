@@ -13,6 +13,7 @@
     <artifactId>jmj-config-client</artifactId>
     <packaging>jar</packaging>
     <name>jmj-config-client</name>
+    <version>1.0</version>
     <description>配置中心(客户端)</description>
 
     <dependencies>

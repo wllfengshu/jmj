@@ -12,6 +12,7 @@
     <groupId>com.wllfengshu.jmj.common.util</groupId>
     <artifactId>jmj-common-util</artifactId>
     <version>1.0</version>
+    <name>jmj-common-util</name>
     <packaging>jar</packaging>
 
 </project>

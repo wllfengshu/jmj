@@ -8,14 +8,16 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
+    <groupId>com.wllfengshu.jmj.provider.dice</groupId>
     <artifactId>jmj-provider-dice</artifactId>
     <packaging>jar</packaging>
     <name>jmj-provider-dice</name>
+    <version>1.0</version>
     <description>骰子</description>
 
     <dependencies>
         <dependency>
-            <groupId>com.wllfengshu.jmj.provider.api</groupId>
+            <groupId>com.wllfengshu.jmj.provider.api.dice</groupId>
             <artifactId>jmj-provider-api-dice</artifactId>
         </dependency>
     </dependencies>

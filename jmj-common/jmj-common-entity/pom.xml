@@ -12,6 +12,7 @@
     <groupId>com.wllfengshu.jmj.common.entity</groupId>
     <artifactId>jmj-common-entity</artifactId>
     <version>1.0</version>
+    <name>jmj-common-entity</name>
     <packaging>jar</packaging>
 
 </project>

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
  * @author wangll
  * @date 2022-05-04 21:02
  */
-@FeignClient(name = "provider-dice-server")
+@FeignClient(name = "jmj-provider-dice")
 public interface DiceService {
 
     @PostMapping(value = "/giveDice")

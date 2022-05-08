@@ -5,9 +5,9 @@ import com.wllfengshu.jmj.provider.api.dice.model.DoDiceRequest;
 import com.wllfengshu.jmj.provider.api.dice.model.DoDiceResponse;
 import com.wllfengshu.jmj.provider.api.dice.model.GiveDiceRequest;
 import com.wllfengshu.jmj.provider.api.dice.model.GiveDiceResponse;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class DiceController {
 
-    @NonNull
+    @Autowired
     private DiceService diceService;
 
     @PostMapping(value = "/giveDice")

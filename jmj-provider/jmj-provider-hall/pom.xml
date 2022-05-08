@@ -8,9 +8,11 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
+    <groupId>com.wllfengshu.jmj.provider.hall</groupId>
     <artifactId>jmj-provider-hall</artifactId>
     <packaging>jar</packaging>
     <name>jmj-provider-hall</name>
+    <version>1.0</version>
     <description>大厅</description>
 
 </project>

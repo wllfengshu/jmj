@@ -4,8 +4,6 @@ server:
 spring:
   application:
     name: jmj-gateway
-  thymeleaf:
-    prefix: classpath:/templates/
 
 zuul:
   prefix: /gateway

@@ -40,6 +40,7 @@
         <spring.feign>1.4.5.RELEASE</spring.feign>
         <commons.configuration>1.10</commons.configuration>
         <org.hdrhistogram>2.1.12</org.hdrhistogram>
+        <commons-io>2.4</commons-io>
     </properties>
 
     <dependencyManagement>
@@ -98,6 +99,10 @@
                         <artifactId>jsr305</artifactId>
                         <groupId>com.google.code.findbugs</groupId>
                     </exclusion>
+                    <exclusion>
+                        <artifactId>commons-io</artifactId>
+                        <groupId>commons-io</groupId>
+                    </exclusion>
                 </exclusions>
             </dependency>
             <dependency>
@@ -138,6 +143,11 @@
                 <groupId>org.hdrhistogram</groupId>
                 <version>${org.hdrhistogram}</version>
             </dependency>
+            <dependency>
+                <artifactId>commons-io</artifactId>
+                <groupId>commons-io</groupId>
+                <version>${commons-io}</version>
+            </dependency>
             <!-- spring end -->
             <!-- jmj start -->
             <dependency>
@@ -156,8 +166,13 @@
                 <version>${jmj.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.wllfengshu.jmj.provider.api</groupId>
+                <groupId>com.wllfengshu.jmj.provider.api.dice</groupId>
                 <artifactId>jmj-provider-api-dice</artifactId>
+                <version>1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.wllfengshu.jmj.provider.api.player</groupId>
+                <artifactId>jmj-provider-api-player</artifactId>
                 <version>${jmj.version}</version>
             </dependency>
             <!-- jmj end -->
@@ -180,6 +195,11 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>3.5</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.80</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

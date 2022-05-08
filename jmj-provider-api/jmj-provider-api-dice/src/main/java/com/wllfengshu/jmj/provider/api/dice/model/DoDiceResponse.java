@@ -1,6 +1,6 @@
 package com.wllfengshu.jmj.provider.api.dice.model;
 
-import com.wllfengshu.jmj.provider.api.dice.model.entity.DiceEntity;
+import com.wllfengshu.jmj.common.entity.dice.DiceEntity;
 import lombok.Data;
 
 import java.util.List;

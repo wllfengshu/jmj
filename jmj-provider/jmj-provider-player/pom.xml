@@ -8,9 +8,17 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
+    <groupId>com.wllfengshu.jmj.provider.player</groupId>
     <artifactId>jmj-provider-player</artifactId>
     <packaging>jar</packaging>
     <name>jmj-provider-player</name>
+    <version>1.0</version>
     <description>玩家</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.wllfengshu.jmj.provider.api.player</groupId>
+            <artifactId>jmj-provider-api-player</artifactId>
+        </dependency>
+    </dependencies>
 </project>

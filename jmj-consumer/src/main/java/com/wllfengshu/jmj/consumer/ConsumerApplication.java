@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+
 /**
  * @author wangll
  * @date 2022-05-04 12:44

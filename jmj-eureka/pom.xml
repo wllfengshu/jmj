@@ -12,6 +12,7 @@
     <artifactId>jmj-eureka</artifactId>
     <packaging>jar</packaging>
     <name>jmj-eureka</name>
+    <version>1.0</version>
     <description>注册中心</description>
 
     <dependencies>
