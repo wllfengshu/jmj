@@ -1,10 +1,10 @@
 package com.wllfengshu.jmj.provider.api.player;
 
 
-import com.wllfengshu.jmj.provider.api.player.model.GivePlayerByTokenRequest;
-import com.wllfengshu.jmj.provider.api.player.model.GivePlayerByTokenResponse;
-import com.wllfengshu.jmj.provider.api.player.model.LoginRequest;
-import com.wllfengshu.jmj.provider.api.player.model.LoginResponse;
+import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayerByTokenRequest;
+import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayerByTokenResponse;
+import com.wllfengshu.jmj.provider.api.player.model.login.LoginRequest;
+import com.wllfengshu.jmj.provider.api.player.model.login.LoginResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

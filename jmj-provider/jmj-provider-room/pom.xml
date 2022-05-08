@@ -15,4 +15,10 @@
     <version>1.0</version>
     <description>房间</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.wllfengshu.jmj.provider.api.room</groupId>
+            <artifactId>jmj-provider-api-room</artifactId>
+        </dependency>
+    </dependencies>
 </project>

@@ -1,10 +1,10 @@
 package com.wllfengshu.jmj.provider.player.service;
 
 import com.wllfengshu.jmj.provider.api.player.PlayerService;
-import com.wllfengshu.jmj.provider.api.player.model.GivePlayerByTokenRequest;
-import com.wllfengshu.jmj.provider.api.player.model.GivePlayerByTokenResponse;
-import com.wllfengshu.jmj.provider.api.player.model.LoginRequest;
-import com.wllfengshu.jmj.provider.api.player.model.LoginResponse;
+import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayerByTokenRequest;
+import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayerByTokenResponse;
+import com.wllfengshu.jmj.provider.api.player.model.login.LoginRequest;
+import com.wllfengshu.jmj.provider.api.player.model.login.LoginResponse;
 import com.wllfengshu.jmj.provider.player.biz.giveplayerbytoken.GivePlayerByTokenBiz;
 import com.wllfengshu.jmj.provider.player.biz.login.LoginBiz;
 import lombok.extern.slf4j.Slf4j;

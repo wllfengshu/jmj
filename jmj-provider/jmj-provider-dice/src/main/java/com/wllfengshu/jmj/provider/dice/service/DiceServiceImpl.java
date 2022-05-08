@@ -1,10 +1,10 @@
 package com.wllfengshu.jmj.provider.dice.service;
 
 import com.wllfengshu.jmj.provider.api.dice.DiceService;
-import com.wllfengshu.jmj.provider.api.dice.model.DoDiceRequest;
-import com.wllfengshu.jmj.provider.api.dice.model.DoDiceResponse;
-import com.wllfengshu.jmj.provider.api.dice.model.GiveDiceRequest;
-import com.wllfengshu.jmj.provider.api.dice.model.GiveDiceResponse;
+import com.wllfengshu.jmj.provider.api.dice.model.dodice.DoDiceRequest;
+import com.wllfengshu.jmj.provider.api.dice.model.dodice.DoDiceResponse;
+import com.wllfengshu.jmj.provider.api.dice.model.givedice.GiveDiceRequest;
+import com.wllfengshu.jmj.provider.api.dice.model.givedice.GiveDiceResponse;
 import com.wllfengshu.jmj.provider.dice.biz.dodice.DoDiceBiz;
 import com.wllfengshu.jmj.provider.dice.biz.givedice.GiveDiceBiz;
 import lombok.extern.slf4j.Slf4j;

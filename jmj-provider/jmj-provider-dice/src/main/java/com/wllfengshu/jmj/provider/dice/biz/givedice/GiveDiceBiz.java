@@ -1,7 +1,7 @@
 package com.wllfengshu.jmj.provider.dice.biz.givedice;
 
-import com.wllfengshu.jmj.provider.api.dice.model.GiveDiceRequest;
-import com.wllfengshu.jmj.provider.api.dice.model.GiveDiceResponse;
+import com.wllfengshu.jmj.provider.api.dice.model.givedice.GiveDiceRequest;
+import com.wllfengshu.jmj.provider.api.dice.model.givedice.GiveDiceResponse;
 import org.springframework.stereotype.Service;
 
 /**

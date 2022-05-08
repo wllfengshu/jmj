@@ -1,9 +1,9 @@
 package com.wllfengshu.jmj.provider.api.dice;
 
-import com.wllfengshu.jmj.provider.api.dice.model.DoDiceRequest;
-import com.wllfengshu.jmj.provider.api.dice.model.DoDiceResponse;
-import com.wllfengshu.jmj.provider.api.dice.model.GiveDiceRequest;
-import com.wllfengshu.jmj.provider.api.dice.model.GiveDiceResponse;
+import com.wllfengshu.jmj.provider.api.dice.model.dodice.DoDiceRequest;
+import com.wllfengshu.jmj.provider.api.dice.model.dodice.DoDiceResponse;
+import com.wllfengshu.jmj.provider.api.dice.model.givedice.GiveDiceRequest;
+import com.wllfengshu.jmj.provider.api.dice.model.givedice.GiveDiceResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,9 +15,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "jmj-provider-dice")
 public interface DiceService {
 
+    /**
+     * 获取骰子的初始信息
+     */
     @PostMapping(value = "/giveDice")
     GiveDiceResponse giveDice(@RequestBody GiveDiceRequest request);
 
+    /**
+     * 掷骰子
+     */
     @PostMapping(value = "/doDice")
     DoDiceResponse doDice(@RequestBody DoDiceRequest request);
 }

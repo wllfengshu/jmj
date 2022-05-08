@@ -15,4 +15,10 @@
     <version>1.0</version>
     <description>大厅</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.wllfengshu.jmj.provider.api.hall</groupId>
+            <artifactId>jmj-provider-api-hall</artifactId>
+        </dependency>
+    </dependencies>
 </project>

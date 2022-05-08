@@ -17,6 +17,8 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 
 /**
+ * 控制器切面（用于把网关放到header里面的数据，放入控制器层的入参里）
+ *
  * @author wangll
  * @date 2022-05-07 23:55
  */

@@ -19,6 +19,9 @@
     <modules>
         <module>jmj-provider-api-dice</module>
         <module>jmj-provider-api-player</module>
+        <module>jmj-provider-api-room</module>
+        <module>jmj-provider-api-hall</module>
+        <module>jmj-provider-api-majiang</module>
     </modules>
 
     <dependencies>

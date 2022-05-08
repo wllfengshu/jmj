@@ -1,6 +1,5 @@
 package com.wllfengshu.jmj.common.entity.gateway;
 
-import com.wllfengshu.jmj.common.entity.player.PlayerEntity;
 import lombok.Data;
 
 /**
@@ -23,7 +22,7 @@ public class GatewayEntity {
     private Long loginTime;
 
     /**
-     * 用户信息
+     * 用户登陆信息
      */
-    private PlayerEntity playerEntity;
+    private GatewayLoginInfo gatewayLoginInfo;
 }

@@ -5,16 +5,18 @@ import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import com.wllfengshu.jmj.common.entity.gateway.GatewayEntity;
+import com.wllfengshu.jmj.common.entity.gateway.GatewayLoginInfo;
 import com.wllfengshu.jmj.common.entity.gateway.constant.GatewayConstant;
-import com.wllfengshu.jmj.common.entity.player.PlayerEntity;
+import com.wllfengshu.jmj.provider.api.player.model.PlayerEntity;
 import com.wllfengshu.jmj.common.util.CustomStringUtils;
 import com.wllfengshu.jmj.provider.api.player.PlayerService;
-import com.wllfengshu.jmj.provider.api.player.model.GivePlayerByTokenRequest;
-import com.wllfengshu.jmj.provider.api.player.model.GivePlayerByTokenResponse;
+import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayerByTokenRequest;
+import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayerByTokenResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cglib.beans.BeanCopier;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.context.annotation.Configuration;
 
@@ -84,10 +86,15 @@ public class AuthFilter extends ZuulFilter {
     private Object routingSucceeded(RequestContext rc, String token, PlayerEntity playerEntity) {
         rc.addZuulRequestHeader(GatewayConstant.TOKEN, token);
 
+        // 构建登陆信息
+        GatewayLoginInfo gatewayLoginInfo = new GatewayLoginInfo();
+        BeanCopier beanCopier = BeanCopier.create(PlayerEntity.class, GatewayLoginInfo.class, false);
+        beanCopier.copy(playerEntity, gatewayLoginInfo, null);
+        // set
         GatewayEntity gatewayEntity = new GatewayEntity();
         gatewayEntity.setRequestId(CustomStringUtils.giveUuid());
         gatewayEntity.setLoginTime(System.currentTimeMillis());
-        gatewayEntity.setPlayerEntity(playerEntity);
+        gatewayEntity.setGatewayLoginInfo(gatewayLoginInfo);
         String loginInfo = JSON.toJSONString(gatewayEntity);
         log.info("[request-routingSucceeded] = {}", loginInfo);
         rc.addZuulRequestHeader(GatewayConstant.LOGIN_INFO, loginInfo);

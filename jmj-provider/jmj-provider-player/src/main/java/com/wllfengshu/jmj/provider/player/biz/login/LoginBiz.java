@@ -1,8 +1,8 @@
 package com.wllfengshu.jmj.provider.player.biz.login;
 
-import com.wllfengshu.jmj.common.entity.player.PlayerEntity;
-import com.wllfengshu.jmj.provider.api.player.model.LoginRequest;
-import com.wllfengshu.jmj.provider.api.player.model.LoginResponse;
+import com.wllfengshu.jmj.provider.api.player.model.PlayerEntity;
+import com.wllfengshu.jmj.provider.api.player.model.login.LoginRequest;
+import com.wllfengshu.jmj.provider.api.player.model.login.LoginResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;

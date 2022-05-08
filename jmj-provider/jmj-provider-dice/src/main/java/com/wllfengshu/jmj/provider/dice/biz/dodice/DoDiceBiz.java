@@ -1,7 +1,7 @@
 package com.wllfengshu.jmj.provider.dice.biz.dodice;
 
-import com.wllfengshu.jmj.provider.api.dice.model.DoDiceRequest;
-import com.wllfengshu.jmj.provider.api.dice.model.DoDiceResponse;
+import com.wllfengshu.jmj.provider.api.dice.model.dodice.DoDiceRequest;
+import com.wllfengshu.jmj.provider.api.dice.model.dodice.DoDiceResponse;
 import org.springframework.stereotype.Service;
 
 /**

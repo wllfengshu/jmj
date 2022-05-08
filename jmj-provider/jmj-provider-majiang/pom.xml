@@ -15,4 +15,10 @@
     <version>1.0</version>
     <description>麻将</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.wllfengshu.jmj.provider.api.majiang</groupId>
+            <artifactId>jmj-provider-api-majiang</artifactId>
+        </dependency>
+    </dependencies>
 </project>

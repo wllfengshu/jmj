@@ -1,8 +1,8 @@
 package com.wllfengshu.jmj.provider.player.biz.giveplayerbytoken;
 
-import com.wllfengshu.jmj.common.entity.player.PlayerEntity;
-import com.wllfengshu.jmj.provider.api.player.model.GivePlayerByTokenRequest;
-import com.wllfengshu.jmj.provider.api.player.model.GivePlayerByTokenResponse;
+import com.wllfengshu.jmj.provider.api.player.model.PlayerEntity;
+import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayerByTokenRequest;
+import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayerByTokenResponse;
 import org.springframework.stereotype.Service;
 
 /**
