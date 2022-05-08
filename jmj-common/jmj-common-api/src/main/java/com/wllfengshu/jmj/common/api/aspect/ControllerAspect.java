@@ -1,4 +1,4 @@
-package com.wllfengshu.jmj.provider.dice.aspect;
+package com.wllfengshu.jmj.common.api.aspect;
 
 import com.alibaba.fastjson.JSON;
 import com.wllfengshu.jmj.common.entity.gateway.GatewayEntity;
@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 public class ControllerAspect {
 
-    @Around("execution( * com.wllfengshu.jmj.provider.*.web..*.*(..))")
+    @Around("execution( * com.wllfengshu.jmj.provider.*.service..*.*(..))")
     public Object setupUserInfo(ProceedingJoinPoint pjp) throws Throwable {
         // 获取方法参数值数组
         Object[] paramArray = pjp.getArgs();

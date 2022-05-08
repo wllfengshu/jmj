@@ -21,4 +21,27 @@ public interface PlayerService {
 
     @PostMapping(value = "/givePlayerByToken")
     GivePlayerByTokenResponse givePlayerByToken(@RequestBody GivePlayerByTokenRequest request);
+
+//    @PostMapping(value = "/logout")
+//    public void logout(@RequestHeader(value = "sessionId") String sessionId) {
+//        playerService.logout(sessionId);
+//    }
+
+//    @ApiOperation(value = "创建房间", httpMethod = "GET")
+//    @GetMapping(value = "/createRoom")
+//    public ResponseEntity<HallEntity> createRoom(@RequestParam(value = "username") String username) {
+//        return new ResponseEntity<>(playerService.createRoom(username), HttpStatus.OK);
+//    }
+
+//    @ApiOperation(value = "真人对战", httpMethod = "GET")
+//    @GetMapping(value = "/realPersonBattle")
+//    public ResponseEntity<HallEntity> realPersonBattle(@RequestParam(value = "username") String username) {
+//        return new ResponseEntity<>(playerService.realPersonBattle(username), HttpStatus.OK);
+//    }
+//
+//    @ApiOperation(value = "人机对战", httpMethod = "GET")
+//    @GetMapping(value = "/manMachineBattle")
+//    public ResponseEntity<HallEntity> manMachineBattle(@RequestParam(value = "username") String username) {
+//        return new ResponseEntity<>(playerService.manMachineBattle(username), HttpStatus.OK);
+//    }
 }

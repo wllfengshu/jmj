@@ -50,5 +50,13 @@
             <groupId>com.wllfengshu.jmj.common.util</groupId>
             <artifactId>jmj-common-util</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.wllfengshu.jmj.common.api</groupId>
+            <artifactId>jmj-common-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.wllfengshu.jmj.common.config</groupId>
+            <artifactId>jmj-common-config</artifactId>
+        </dependency>
     </dependencies>
 </project>

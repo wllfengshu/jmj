@@ -38,11 +38,13 @@
         <spring.hystrix>1.4.5.RELEASE</spring.hystrix>
         <spring.netflix-eureka>2.2.5.RELEASE</spring.netflix-eureka>
         <spring.feign>1.4.5.RELEASE</spring.feign>
+        <spring.aop>2.3.2.RELEASE</spring.aop>
         <commons.configuration>1.10</commons.configuration>
         <org.hdrhistogram>2.1.12</org.hdrhistogram>
         <commons-io>2.4</commons-io>
     </properties>
 
+    <!-- 禁止在子项目中指定任何版本！！！ -->
     <dependencyManagement>
         <dependencies>
             <!-- spring start -->
@@ -132,6 +134,11 @@
                         <groupId>com.fasterxml.woodstox</groupId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${spring.aop}</version>
             </dependency>
             <dependency>
                 <groupId>commons-configuration</groupId>

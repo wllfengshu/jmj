@@ -9,7 +9,8 @@ import org.springframework.cache.annotation.EnableCaching;
  * @date 2022-05-04 12:44
  */
 @EnableCaching
-@SpringBootApplication
+@EnableFeignClients
+@SpringBootApplication(scanBasePackages = "com.wllfengshu.jmj.*")
 public class ProviderRoomApplication {
 
 	public static void main(String[] args) {

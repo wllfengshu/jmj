@@ -10,3 +10,19 @@ spring:
       profile: dev
       label: master
       uri: http://jmj:8002/
+
+ribbon:
+  ConnectTimeot: 10000 # 连接超时时间（ms）
+  ReadTimeot: 10000 # 通信超时时间（ms）
+  OkToRertryOnAllOperations: ture # 是否对所有操作重试
+  MaxAutoRetriesNextServer: 1 #同一个服务不同实例的重试次数
+  MaxAutoRetries: 1 #同一实例的重试次数
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillisecond: 10000 #熔断超时时长 10000ms
+
