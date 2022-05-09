@@ -23,9 +23,4 @@ public class RoomEntity {
      * 用户名
      */
     private String username;
-
-    /**
-     * 正在被使用
-     */
-    private Byte inUse;
 }

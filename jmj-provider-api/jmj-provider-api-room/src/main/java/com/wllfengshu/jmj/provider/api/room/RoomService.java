@@ -1,7 +1,5 @@
 package com.wllfengshu.jmj.provider.api.room;
 
-import com.wllfengshu.jmj.provider.api.room.model.createroom.CreateRoomRequest;
-import com.wllfengshu.jmj.provider.api.room.model.createroom.CreateRoomResponse;
 import com.wllfengshu.jmj.provider.api.room.model.giveroom.GiveRoomRequest;
 import com.wllfengshu.jmj.provider.api.room.model.giveroom.GiveRoomResponse;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -17,7 +15,4 @@ public interface RoomService {
 
     @PostMapping(value = "/giveRoom")
     GiveRoomResponse giveRoom(@RequestBody GiveRoomRequest request);
-
-    @PostMapping(value = "/createRoom")
-    CreateRoomResponse createRoom(@RequestBody CreateRoomRequest request);
 }

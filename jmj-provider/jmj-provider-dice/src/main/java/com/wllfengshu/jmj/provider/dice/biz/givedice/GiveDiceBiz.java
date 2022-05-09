@@ -13,7 +13,9 @@ public class GiveDiceBiz {
 
     public GiveDiceResponse giveDice(GiveDiceRequest request) {
         GiveDiceResponse response = new GiveDiceResponse();
-        response.setTextureGifUrl("我是provider-dice");
+        response.setDiceNum(2);
+        response.setTexturePoint1Url("https://gitee.com/tiandixuanwuliang/test/raw/master/img-center/dice/default/dice-p-1.PNG");
+        response.setTextureGifUrl("https://gitee.com/tiandixuanwuliang/test/raw/master/img-center/dice/default/dice-gif-1.jpg");
         return response;
     }
 }

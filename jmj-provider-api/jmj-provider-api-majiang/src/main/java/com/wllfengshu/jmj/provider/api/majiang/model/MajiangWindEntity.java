@@ -9,6 +9,6 @@ import lombok.Data;
  * @date 2022-02-13 23:20
  */
 @Data
-public class MajiangWindEntity extends MajiangEntity{
+public class MajiangWindEntity extends MajiangEntity {
 
 }

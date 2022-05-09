@@ -9,5 +9,8 @@ import lombok.Data;
 @Data
 public class GivePlayerByTokenRequest {
 
+    /**
+     * 登陆的唯一标识
+     */
     private String token;
 }

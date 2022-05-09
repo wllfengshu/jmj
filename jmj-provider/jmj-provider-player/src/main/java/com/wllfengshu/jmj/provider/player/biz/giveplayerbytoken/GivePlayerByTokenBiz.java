@@ -15,7 +15,6 @@ public class GivePlayerByTokenBiz {
     public GivePlayerByTokenResponse givePlayerByToken(GivePlayerByTokenRequest request) {
         GivePlayerByTokenResponse response = new GivePlayerByTokenResponse();
         PlayerEntity playerEntity = new PlayerEntity();
-        playerEntity.setId(1L);
         playerEntity.setUsername("zhangSan");
         response.setPlayerEntity(playerEntity);
 

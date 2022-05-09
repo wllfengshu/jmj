@@ -1,6 +1,5 @@
 package com.wllfengshu.jmj.provider.api.player;
 
-
 import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayerByTokenRequest;
 import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayerByTokenResponse;
 import com.wllfengshu.jmj.provider.api.player.model.login.LoginRequest;

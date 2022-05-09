@@ -1,5 +1,6 @@
 package com.wllfengshu.jmj.provider.api.hall.model.givehall;
 
+import com.wllfengshu.jmj.provider.api.hall.model.HallEntity;
 import lombok.Data;
 
 /**
@@ -10,7 +11,7 @@ import lombok.Data;
 public class GiveHallResponse {
 
     /**
-     * 背景图
+     * 大厅信息
      */
-    private String bgImgUrl;
+    private HallEntity hallEntity;
 }

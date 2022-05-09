@@ -1,11 +1,11 @@
 package com.wllfengshu.jmj.provider.room.service;
 
 import com.wllfengshu.jmj.provider.api.room.RoomService;
-import com.wllfengshu.jmj.provider.api.room.model.createroom.CreateRoomRequest;
-import com.wllfengshu.jmj.provider.api.room.model.createroom.CreateRoomResponse;
 import com.wllfengshu.jmj.provider.api.room.model.giveroom.GiveRoomRequest;
 import com.wllfengshu.jmj.provider.api.room.model.giveroom.GiveRoomResponse;
+import com.wllfengshu.jmj.provider.room.biz.giveroom.GiveRoomBiz;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -16,13 +16,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RoomServiceImpl implements RoomService {
 
-    @Override
-    public GiveRoomResponse giveRoom(GiveRoomRequest request) {
-        return null;
-    }
+    @Autowired
+    private GiveRoomBiz giveRoomBiz;
 
     @Override
-    public CreateRoomResponse createRoom(CreateRoomRequest request) {
-        return null;
+    public GiveRoomResponse giveRoom(GiveRoomRequest request) {
+        try {
+            return giveRoomBiz.giveRoom(request);
+        }catch (Exception e) {
+            log.error("[service-error-login]", e);
+            return null;
+        }
     }
 }

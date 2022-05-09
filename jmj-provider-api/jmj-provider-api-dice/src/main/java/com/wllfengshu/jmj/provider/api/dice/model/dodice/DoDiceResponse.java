@@ -1,6 +1,5 @@
 package com.wllfengshu.jmj.provider.api.dice.model.dodice;
 
-import com.wllfengshu.jmj.provider.api.dice.model.DiceEntity;
 import lombok.Data;
 
 import java.util.List;
@@ -13,9 +12,9 @@ import java.util.List;
 public class DoDiceResponse {
 
     /**
-     * 骰子
+     * 投掷的骰子信息
      */
-    private List<DiceEntity> dices;
+    private List<DiceModel> dices;
 
     /**
      * 骰子数量
@@ -26,4 +25,14 @@ public class DoDiceResponse {
      * 点数之和
      */
     private Integer sumPoint;
+
+    /**
+     * 最小点数
+     */
+    private Integer minPoint;
+
+    /**
+     * 最大点数
+     */
+    private Integer maxPoint;
 }

@@ -10,5 +10,8 @@ import lombok.Data;
 @Data
 public class GivePlayerByTokenResponse {
 
+    /**
+     * 玩家信息
+     */
     private PlayerEntity playerEntity;
 }

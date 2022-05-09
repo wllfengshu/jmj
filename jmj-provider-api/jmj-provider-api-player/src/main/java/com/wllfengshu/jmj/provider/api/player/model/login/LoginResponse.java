@@ -10,7 +10,13 @@ import lombok.Data;
 @Data
 public class LoginResponse {
 
+    /**
+     * 登陆的唯一标识
+     */
     private String token;
 
+    /**
+     * 玩家信息
+     */
     private PlayerEntity playerEntity;
 }
