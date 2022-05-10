@@ -2,6 +2,7 @@ package com.wllfengshu.jmj.provider.api.room;
 
 import com.wllfengshu.jmj.provider.api.room.model.giveroom.GiveRoomRequest;
 import com.wllfengshu.jmj.provider.api.room.model.giveroom.GiveRoomResponse;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,5 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface RoomService {
 
     @PostMapping(value = "/giveRoom")
+    @ApiOperation("获取房间")
     GiveRoomResponse giveRoom(@RequestBody GiveRoomRequest request);
 }

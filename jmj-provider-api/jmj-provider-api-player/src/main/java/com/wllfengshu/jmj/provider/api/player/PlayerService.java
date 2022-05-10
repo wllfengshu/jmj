@@ -4,6 +4,7 @@ import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayer
 import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayerByTokenResponse;
 import com.wllfengshu.jmj.provider.api.player.model.login.LoginRequest;
 import com.wllfengshu.jmj.provider.api.player.model.login.LoginResponse;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface PlayerService {
 
     @PostMapping(value = "/login")
+    @ApiOperation("登陆")
     LoginResponse login(@RequestBody LoginRequest request);
 
     @PostMapping(value = "/givePlayerByToken")
+    @ApiOperation("通过token获取玩家信息")
     GivePlayerByTokenResponse givePlayerByToken(@RequestBody GivePlayerByTokenRequest request);
 
 //    @PostMapping(value = "/logout")

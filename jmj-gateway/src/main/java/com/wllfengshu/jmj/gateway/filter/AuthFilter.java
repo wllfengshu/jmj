@@ -7,9 +7,9 @@ import com.netflix.zuul.exception.ZuulException;
 import com.wllfengshu.jmj.common.entity.gateway.GatewayEntity;
 import com.wllfengshu.jmj.common.entity.gateway.GatewayLoginInfo;
 import com.wllfengshu.jmj.common.entity.gateway.constant.GatewayConstant;
-import com.wllfengshu.jmj.provider.api.player.model.PlayerEntity;
 import com.wllfengshu.jmj.common.util.CustomStringUtils;
 import com.wllfengshu.jmj.provider.api.player.PlayerService;
+import com.wllfengshu.jmj.provider.api.player.model.PlayerEntity;
 import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayerByTokenRequest;
 import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayerByTokenResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +21,7 @@ import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * @author wangll
@@ -32,6 +33,8 @@ public class AuthFilter extends ZuulFilter {
 
     @Value("${page.msg.NoPermission:No Permission, <a href='http://jmj:8080'>Please click</a>}")
     private String pageNoPermissionMsg;
+    @Value("${tokenWhiteList:[]}")
+    private List<String> tokenWhiteList;
     @Autowired
     private PlayerService playerService;
 
@@ -60,6 +63,13 @@ public class AuthFilter extends ZuulFilter {
         if (null == hsr) {
             return this.routingFailed(rc);
         }
+        // 白名单接口不拦截
+        String requestPath = hsr.getServletPath();
+        if (tokenWhiteList.contains(requestPath)) {
+            log.info("[request-tokenWhite] = {}", requestPath);
+            return null;
+        }
+
         String token = hsr.getHeader(GatewayConstant.TOKEN);
         if (StringUtils.isEmpty(token)) {
             return this.routingFailed(rc);

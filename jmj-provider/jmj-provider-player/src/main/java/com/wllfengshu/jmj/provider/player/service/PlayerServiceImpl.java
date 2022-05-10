@@ -7,6 +7,7 @@ import com.wllfengshu.jmj.provider.api.player.model.login.LoginRequest;
 import com.wllfengshu.jmj.provider.api.player.model.login.LoginResponse;
 import com.wllfengshu.jmj.provider.player.biz.giveplayerbytoken.GivePlayerByTokenBiz;
 import com.wllfengshu.jmj.provider.player.biz.login.LoginBiz;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author wangll
  * @date 2022-02-13 20:04
  */
+@Api
 @Slf4j
 @RestController
 public class PlayerServiceImpl implements PlayerService {
