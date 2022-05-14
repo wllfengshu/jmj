@@ -106,7 +106,7 @@ public class AuthFilter extends ZuulFilter {
         gatewayEntity.setLoginTime(System.currentTimeMillis());
         gatewayEntity.setGatewayLoginInfo(gatewayLoginInfo);
         String loginInfo = JSON.toJSONString(gatewayEntity);
-        log.info("[request-routingSucceeded] = {}", loginInfo);
+        log.info("[request-routingSucceeded] token = {} loginInfo=  {}", token, loginInfo);
         rc.addZuulRequestHeader(GatewayConstant.LOGIN_INFO, loginInfo);
         return null;
     }

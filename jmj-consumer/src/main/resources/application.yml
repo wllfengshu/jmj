@@ -4,6 +4,17 @@ server:
 spring:
   application:
     name: jmj-consumer
+  sleuth:
+    web:
+      client:
+        # 开启采集链路
+        enabled: true
+    sampler:
+      # 默认采集是 0.1(百分之十),生产环境采用默认，测试环境可以修改为1.0
+      probability: 1.0
+    # zipkin服务所在地址
+    zipkin:
+      base-url: http://jmj:8007
 
 # SpringBoot监控端点访问权限，可以配置为接口地址，配置为*表示全部可以访问
 management:
