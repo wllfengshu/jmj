@@ -10,6 +10,8 @@ spring:
       profile: dev
       label: master
       uri: http://jmj:8002/
+  zipkin:
+    base-url: http://jmj:8007
 
 # token过滤白名单
 tokenWhiteList:

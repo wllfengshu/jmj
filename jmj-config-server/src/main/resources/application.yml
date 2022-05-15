@@ -8,7 +8,7 @@ spring:
     config:
       server:
         git:
-          uri: https://gitee.com/tiandixuanwuliang/test
-          search-paths: config-center
+          uri: https://github.com/wllfengshu/jmj
+          search-paths: center-config
           username: wllfengshu@163.com
           password: 1111111
