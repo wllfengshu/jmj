@@ -4,12 +4,11 @@ import com.alibaba.fastjson.JSON;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
-import com.wllfengshu.jmj.common.entity.gateway.GatewayEntity;
+import com.wllfengshu.jmj.common.entity.gateway.GatewayRequest;
 import com.wllfengshu.jmj.common.entity.gateway.GatewayLoginInfo;
 import com.wllfengshu.jmj.common.entity.gateway.constant.GatewayConstant;
-import com.wllfengshu.jmj.common.util.CustomStringUtils;
 import com.wllfengshu.jmj.provider.api.player.PlayerService;
-import com.wllfengshu.jmj.provider.api.player.model.PlayerEntity;
+import com.wllfengshu.jmj.provider.api.player.model.PlayerPO;
 import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayerByTokenRequest;
 import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayerByTokenResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +18,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cglib.beans.BeanCopier;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -61,28 +61,39 @@ public class AuthFilter extends ZuulFilter {
         RequestContext rc = RequestContext.getCurrentContext();
         HttpServletRequest hsr = rc.getRequest();
         if (null == hsr) {
+            log.error("[request-httpServletRequestIsNull]");
             return this.routingFailed(rc);
-        }
-        // 白名单接口不拦截
-        String requestPath = hsr.getServletPath();
-        if (tokenWhiteList.contains(requestPath)) {
-            log.info("[request-tokenWhite] = {}", requestPath);
-            return null;
         }
 
-        String token = hsr.getHeader(GatewayConstant.TOKEN);
-        if (StringUtils.isEmpty(token)) {
+        // 1白名单接口不拦截
+        String requestPath = hsr.getServletPath();
+        if (tokenWhiteList.contains(requestPath)) {
+            log.info("[request-tokenWhiteList] = {}", requestPath);
+            return null;
+        }
+        // 2必须是post请求
+        String method = hsr.getMethod();
+        if (RequestMethod.POST.toString().equals(method)) {
+            log.warn("[request-mastPost] = {}", method);
             return this.routingFailed(rc);
         }
-        // 设置用户信息
+        // 3获取token
+        String token = hsr.getHeader(GatewayConstant.TOKEN);
+        if (StringUtils.isEmpty(token)) {
+            log.warn("[request-needToken]");
+            return this.routingFailed(rc);
+        }
+
+        // 4设置用户信息
         GivePlayerByTokenRequest request = new GivePlayerByTokenRequest();
         request.setToken(token);
         GivePlayerByTokenResponse response = playerService.givePlayerByToken(request);
-        PlayerEntity playerEntity = response.getPlayerEntity();
-        if (null == playerEntity) {
+        if (null == response
+            || null == response.getPlayerPO()) {
+            log.warn("[request-notFoundUser] = {}", request);
             return this.routingFailed(rc);
         }
-        return this.routingSucceeded(rc, token, playerEntity);
+        return this.routingSucceeded(rc, token, response.getPlayerPO());
     }
 
     /**
@@ -90,23 +101,23 @@ public class AuthFilter extends ZuulFilter {
      *
      * @param rc
      * @param token
-     * @param playerEntity
+     * @param playerPO
      * @return
      */
-    private Object routingSucceeded(RequestContext rc, String token, PlayerEntity playerEntity) {
+    private Object routingSucceeded(RequestContext rc, String token, PlayerPO playerPO) {
         rc.addZuulRequestHeader(GatewayConstant.TOKEN, token);
 
         // 构建登陆信息
         GatewayLoginInfo gatewayLoginInfo = new GatewayLoginInfo();
-        BeanCopier beanCopier = BeanCopier.create(PlayerEntity.class, GatewayLoginInfo.class, false);
-        beanCopier.copy(playerEntity, gatewayLoginInfo, null);
+        BeanCopier beanCopier = BeanCopier.create(PlayerPO.class, GatewayLoginInfo.class, false);
+        beanCopier.copy(playerPO, gatewayLoginInfo, null);
         // set
-        GatewayEntity gatewayEntity = new GatewayEntity();
-        gatewayEntity.setRequestId(CustomStringUtils.giveUuid());
-        gatewayEntity.setLoginTime(System.currentTimeMillis());
-        gatewayEntity.setGatewayLoginInfo(gatewayLoginInfo);
-        String loginInfo = JSON.toJSONString(gatewayEntity);
-        log.info("[request-routingSucceeded] token = {} loginInfo=  {}", token, loginInfo);
+        GatewayRequest gatewayRequest = new GatewayRequest();
+        gatewayRequest.setToken(token);
+        gatewayRequest.setLoginTime(System.currentTimeMillis());
+        gatewayRequest.setGatewayLoginInfo(gatewayLoginInfo);
+        String loginInfo = JSON.toJSONString(gatewayRequest);
+        log.info("[request-routingSucceeded] token = {} loginInfo = {}", token, loginInfo);
         rc.addZuulRequestHeader(GatewayConstant.LOGIN_INFO, loginInfo);
         return null;
     }
@@ -122,7 +133,7 @@ public class AuthFilter extends ZuulFilter {
         rc.setResponseStatusCode(401);
         rc.addZuulResponseHeader("Content-Type","text/html;charset=utf-8");
         rc.setResponseBody(pageNoPermissionMsg);
-        log.info("[request-routingFailed]");
+        log.warn("[request-routingFailed]");
         return null;
     }
 }

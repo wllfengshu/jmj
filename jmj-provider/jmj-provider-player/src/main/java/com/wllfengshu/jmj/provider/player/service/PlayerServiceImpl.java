@@ -5,8 +5,14 @@ import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayer
 import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayerByTokenResponse;
 import com.wllfengshu.jmj.provider.api.player.model.login.LoginRequest;
 import com.wllfengshu.jmj.provider.api.player.model.login.LoginResponse;
+import com.wllfengshu.jmj.provider.api.player.model.logout.LogoutRequest;
+import com.wllfengshu.jmj.provider.api.player.model.logout.LogoutResponse;
+import com.wllfengshu.jmj.provider.api.player.model.register.RegisterRequest;
+import com.wllfengshu.jmj.provider.api.player.model.register.RegisterResponse;
 import com.wllfengshu.jmj.provider.player.biz.giveplayerbytoken.GivePlayerByTokenBiz;
 import com.wllfengshu.jmj.provider.player.biz.login.LoginBiz;
+import com.wllfengshu.jmj.provider.player.biz.logout.LogoutBiz;
+import com.wllfengshu.jmj.provider.player.biz.register.RegisterBiz;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,25 +30,29 @@ public class PlayerServiceImpl implements PlayerService {
     @Autowired
     private LoginBiz loginBiz;
     @Autowired
+    private LogoutBiz logoutBiz;
+    @Autowired
+    private RegisterBiz registerBiz;
+    @Autowired
     private GivePlayerByTokenBiz givePlayerByTokenBiz;
 
     @Override
     public LoginResponse login(LoginRequest request) {
-        try {
-            return loginBiz.login(request);
-        }catch (Exception e) {
-            log.error("[service-error-login]", e);
-            return null;
-        }
+        return loginBiz.process(request);
     }
 
     @Override
     public GivePlayerByTokenResponse givePlayerByToken(GivePlayerByTokenRequest request) {
-        try {
-            return givePlayerByTokenBiz.givePlayerByToken(request);
-        }catch (Exception e) {
-            log.error("[service-error-givePlayerByToken]", e);
-            return null;
-        }
+        return givePlayerByTokenBiz.process(request);
+    }
+
+    @Override
+    public LogoutResponse logout(LogoutRequest request) {
+        return logoutBiz.process(request);
+    }
+
+    @Override
+    public RegisterResponse register(RegisterRequest request) {
+        return registerBiz.process(request);
     }
 }

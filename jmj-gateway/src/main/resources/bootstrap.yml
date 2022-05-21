@@ -13,11 +13,3 @@ spring:
   zipkin:
     base-url: http://jmj:8007
 
-# token过滤白名单
-tokenWhiteList:
-  "/gateway/jmj-provider-player/login, \
-   /gateway/jmj-provider-dice/v2/api-docs, \
-   /gateway/jmj-provider-hall/v2/api-docs, \
-   /gateway/jmj-provider-majiang/v2/api-docs, \
-   /gateway/jmj-provider-player/v2/api-docs, \
-   /gateway/jmj-provider-room/v2/api-docs"

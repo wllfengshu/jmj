@@ -1,6 +1,10 @@
 package com.wllfengshu.jmj.provider.api.dice.model;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * 骰子
@@ -9,11 +13,15 @@ import lombok.Data;
  * @date 2022-02-13 20:26
  */
 @Data
-public class DiceEntity {
+@TableName("tb_dice")
+public class DicePO implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * ID
      */
+    @TableId
     private Integer id;
 
     /**

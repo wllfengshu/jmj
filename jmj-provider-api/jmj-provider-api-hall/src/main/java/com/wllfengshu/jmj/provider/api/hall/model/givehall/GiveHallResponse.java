@@ -1,6 +1,7 @@
 package com.wllfengshu.jmj.provider.api.hall.model.givehall;
 
-import com.wllfengshu.jmj.provider.api.hall.model.HallEntity;
+import com.wllfengshu.jmj.common.entity.gateway.GatewayResponse;
+import com.wllfengshu.jmj.provider.api.hall.model.HallPO;
 import lombok.Data;
 
 /**
@@ -8,10 +9,10 @@ import lombok.Data;
  * @date 2022-05-08 23:38
  */
 @Data
-public class GiveHallResponse {
+public class GiveHallResponse extends GatewayResponse {
 
     /**
      * 大厅信息
      */
-    private HallEntity hallEntity;
+    private HallPO hallPO;
 }

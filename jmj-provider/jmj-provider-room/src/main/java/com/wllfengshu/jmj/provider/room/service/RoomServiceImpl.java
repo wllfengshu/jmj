@@ -23,11 +23,6 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public GiveRoomResponse giveRoom(GiveRoomRequest request) {
-        try {
-            return giveRoomBiz.giveRoom(request);
-        }catch (Exception e) {
-            log.error("[service-error-login]", e);
-            return null;
-        }
+        return giveRoomBiz.process(request);
     }
 }

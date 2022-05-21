@@ -3,18 +3,18 @@ package com.wllfengshu.jmj.common.entity.gateway;
 import lombok.Data;
 
 /**
- * 网关请求头
+ * 网关求头体
  *
  * @author wangll
  * @date 2022-05-06 9:23
  */
 @Data
-public class GatewayEntity {
+public class GatewayRequest {
 
     /**
-     * 请求唯一标识
+     * 登陆的唯一凭证
      */
-    private String requestId;
+    private String token;
 
     /**
      * 登陆时间

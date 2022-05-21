@@ -1,5 +1,6 @@
 package com.wllfengshu.jmj.provider.api.dice.model.dodice;
 
+import com.wllfengshu.jmj.common.entity.gateway.GatewayResponse;
 import lombok.Data;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
  * @date 2022-05-04 21:27
  */
 @Data
-public class DoDiceResponse {
+public class DoDiceResponse extends GatewayResponse {
 
     /**
      * 投掷的骰子信息

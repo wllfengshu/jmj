@@ -23,11 +23,6 @@ public class HallServiceImpl implements HallService {
 
     @Override
     public GiveHallResponse giveHall(GiveHallRequest request) {
-        try {
-            return giveHallBiz.login(request);
-        }catch (Exception e) {
-            log.error("[service-error-login]", e);
-            return null;
-        }
+        return giveHallBiz.process(request);
     }
 }

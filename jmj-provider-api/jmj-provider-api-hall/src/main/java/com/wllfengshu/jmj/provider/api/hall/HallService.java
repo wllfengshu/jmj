@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "jmj-provider-hall")
 public interface HallService {
 
-    @PostMapping(value = "/giveHall")
     @ApiOperation("获取大厅")
+    @PostMapping(value = "/giveHall")
     GiveHallResponse giveHall(@RequestBody GiveHallRequest request);
 }

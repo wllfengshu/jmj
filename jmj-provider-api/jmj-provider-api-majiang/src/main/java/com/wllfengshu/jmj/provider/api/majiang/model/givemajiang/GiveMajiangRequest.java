@@ -1,6 +1,6 @@
 package com.wllfengshu.jmj.provider.api.majiang.model.givemajiang;
 
-import com.wllfengshu.jmj.common.entity.gateway.GatewayEntity;
+import com.wllfengshu.jmj.common.entity.gateway.GatewayRequest;
 import lombok.Data;
 
 /**
@@ -8,5 +8,5 @@ import lombok.Data;
  * @date 2022-05-09 18:37
  */
 @Data
-public class GiveMajiangRequest extends GatewayEntity {
+public class GiveMajiangRequest extends GatewayRequest {
 }

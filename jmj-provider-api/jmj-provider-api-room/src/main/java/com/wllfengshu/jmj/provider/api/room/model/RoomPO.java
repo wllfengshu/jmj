@@ -1,17 +1,25 @@
 package com.wllfengshu.jmj.provider.api.room.model;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * @author wangll
  * @date 2022-02-13 23:51
  */
 @Data
-public class RoomEntity {
+@TableName("tb_room")
+public class RoomPO implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * ID
      */
+    @TableId
     private Integer id;
 
     /**

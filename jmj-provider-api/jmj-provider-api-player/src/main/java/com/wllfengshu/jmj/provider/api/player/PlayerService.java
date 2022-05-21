@@ -4,6 +4,10 @@ import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayer
 import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayerByTokenResponse;
 import com.wllfengshu.jmj.provider.api.player.model.login.LoginRequest;
 import com.wllfengshu.jmj.provider.api.player.model.login.LoginResponse;
+import com.wllfengshu.jmj.provider.api.player.model.logout.LogoutRequest;
+import com.wllfengshu.jmj.provider.api.player.model.logout.LogoutResponse;
+import com.wllfengshu.jmj.provider.api.player.model.register.RegisterRequest;
+import com.wllfengshu.jmj.provider.api.player.model.register.RegisterResponse;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,18 +20,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "jmj-provider-player")
 public interface PlayerService {
 
-    @PostMapping(value = "/login")
     @ApiOperation("登陆")
+    @PostMapping(value = "/login")
     LoginResponse login(@RequestBody LoginRequest request);
 
-    @PostMapping(value = "/givePlayerByToken")
     @ApiOperation("通过token获取玩家信息")
+    @PostMapping(value = "/givePlayerByToken")
     GivePlayerByTokenResponse givePlayerByToken(@RequestBody GivePlayerByTokenRequest request);
 
-//    @PostMapping(value = "/logout")
-//    public void logout(@RequestHeader(value = "sessionId") String sessionId) {
-//        playerService.logout(sessionId);
-//    }
+    @ApiOperation("登出")
+    @PostMapping(value = "/logout")
+    LogoutResponse logout(@RequestBody LogoutRequest request);
+
+    @ApiOperation("注册")
+    @PostMapping(value = "/register")
+    RegisterResponse register(@RequestBody RegisterRequest request);
 
 //    @ApiOperation(value = "创建房间", httpMethod = "GET")
 //    @GetMapping(value = "/createRoom")

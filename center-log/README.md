@@ -17,6 +17,8 @@ curl -sSL https://zipkin.io/quickstart.sh | bash -s
 
 ## 启动
 
+> 请务必设置端口为8007，不然其他的微服务配置都要改
+
 - 方法一：直接执行如下命令：
 ```jshelllanguage
 java -jar zipkin-server-2.23.16-exec.jar --server.port=8007

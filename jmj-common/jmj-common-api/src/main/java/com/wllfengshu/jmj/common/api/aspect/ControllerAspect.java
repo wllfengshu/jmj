@@ -1,7 +1,7 @@
 package com.wllfengshu.jmj.common.api.aspect;
 
 import com.alibaba.fastjson.JSON;
-import com.wllfengshu.jmj.common.entity.gateway.GatewayEntity;
+import com.wllfengshu.jmj.common.entity.gateway.GatewayRequest;
 import com.wllfengshu.jmj.common.entity.gateway.constant.GatewayConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ArrayUtils;
@@ -17,7 +17,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 控制器切面（用于把网关放到header里面的数据，放入控制器层的入参里）
+ * 控制器切面（用于把网关数据放到header里面的数据，放入控制器层的入参里）
  *
  * @author wangll
  * @date 2022-05-07 23:55
@@ -44,7 +44,7 @@ public class ControllerAspect {
             return pjp.proceed();
         }
         // 必须是GatewayEntity的子类，否则不处理
-        if (!GatewayEntity.class.isAssignableFrom(paramTypeArray[0])) {
+        if (!GatewayRequest.class.isAssignableFrom(paramTypeArray[0])) {
             return pjp.proceed();
         }
 
@@ -54,9 +54,9 @@ public class ControllerAspect {
         if (null == inputObject) {
             inputObject = inputClass.getDeclaredConstructor().newInstance();
         }
-        GatewayEntity gatewayEntity = this.giveGatewayEntity();
-        BeanCopier beanCopier = BeanCopier.create(GatewayEntity.class, GatewayEntity.class, false);
-        beanCopier.copy(gatewayEntity, inputObject, null);
+        GatewayRequest gatewayRequest = this.giveGatewayEntity();
+        BeanCopier beanCopier = BeanCopier.create(GatewayRequest.class, GatewayRequest.class, false);
+        beanCopier.copy(gatewayRequest, inputObject, null);
 
         paramArray[0] = inputObject;
         Object result = pjp.proceed(paramArray);
@@ -69,20 +69,20 @@ public class ControllerAspect {
      *
      * @return
      */
-    private GatewayEntity giveGatewayEntity() {
+    private GatewayRequest giveGatewayEntity() {
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         if (null == requestAttributes) {
             log.error("[giveGatewayEntity error, requestAttributes is null]");
-            return new GatewayEntity();
+            return new GatewayRequest();
         }
         HttpServletRequest request = requestAttributes.getRequest();
         String loginInfo = request.getHeader(GatewayConstant.LOGIN_INFO);
-        GatewayEntity gatewayEntity = JSON.parseObject(loginInfo, GatewayEntity.class);
-        if (null == gatewayEntity) {
-            log.error("[giveGatewayEntity error, gatewayEntity is null]");
-            return new GatewayEntity();
+        GatewayRequest gatewayRequest = JSON.parseObject(loginInfo, GatewayRequest.class);
+        if (null == gatewayRequest) {
+            log.error("[giveGatewayEntity error, gatewayRequest is null]");
+            return new GatewayRequest();
         }
-        return gatewayEntity;
+        return gatewayRequest;
     }
 
 }

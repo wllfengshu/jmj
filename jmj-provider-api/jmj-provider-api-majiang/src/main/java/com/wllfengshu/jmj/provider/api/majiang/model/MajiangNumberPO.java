@@ -9,7 +9,7 @@ import lombok.Data;
  * @date 2022-02-13 23:20
  */
 @Data
-public class MajiangNumberEntity extends MajiangEntity {
+public class MajiangNumberPO extends MajiangPO {
 
     /**
      * 数字：1~9

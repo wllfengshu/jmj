@@ -1,5 +1,6 @@
 package com.wllfengshu.jmj.provider.dice.biz.dodice;
 
+import com.wllfengshu.jmj.common.api.inter.AbstractInterfaceBase;
 import com.wllfengshu.jmj.common.util.CustomArrayUtils;
 import com.wllfengshu.jmj.provider.api.dice.model.dodice.DiceModel;
 import com.wllfengshu.jmj.provider.api.dice.model.dodice.DoDiceRequest;
@@ -15,9 +16,15 @@ import java.util.List;
  * @date 2022-05-08 18:22
  */
 @Service
-public class DoDiceBiz {
+public class DoDiceBiz extends AbstractInterfaceBase<DoDiceRequest, DoDiceResponse> {
 
-    public DoDiceResponse doDice(DoDiceRequest request) {
+    @Override
+    protected String giveActionName() {
+        return "doDice";
+    }
+
+    @Override
+    protected DoDiceResponse doProcess(DoDiceRequest request) {
         Integer diceNum = request.getDiceNum();
         if (null == diceNum) {
             diceNum = 2;
@@ -40,11 +47,10 @@ public class DoDiceBiz {
         for (int n : num) {
             DiceModel model = new DiceModel();
             model.setPoint(n);
-            model.setTexturePointUrl("https://gitee.com/tiandixuanwuliang/test/raw/master/img-center/dice/default/dice-p-" + n + ".PNG");
+            model.setTexturePointUrl("https://gitee.com/tiandixuanwuliang/jmj/raw/master/center-img/dice/default/dice-p-" + n + ".PNG");
             dices.add(model);
         }
         response.setDices(dices);
         return response;
     }
-
 }

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "jmj-provider-room")
 public interface RoomService {
 
-    @PostMapping(value = "/giveRoom")
     @ApiOperation("获取房间")
+    @PostMapping(value = "/giveRoom")
     GiveRoomResponse giveRoom(@RequestBody GiveRoomRequest request);
 }

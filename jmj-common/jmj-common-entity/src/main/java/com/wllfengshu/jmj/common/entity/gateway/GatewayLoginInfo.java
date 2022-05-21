@@ -3,7 +3,8 @@ package com.wllfengshu.jmj.common.entity.gateway;
 import lombok.Data;
 
 /**
- * 登陆信息（和PlayerEntity对象属性几乎一样）
+ * 登陆信息
+ * （和PlayerEntity对象属性几乎一样，但是不包含敏感信息。会随着接口调用出现在各个微服务中）
  *
  * @author wangll
  * @date 2022-05-08 23:26

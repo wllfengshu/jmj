@@ -28,21 +28,11 @@ public class DiceServiceImpl implements DiceService {
 
     @Override
     public GiveDiceResponse giveDice(GiveDiceRequest request) {
-        try {
-            return giveDiceBiz.giveDice(request);
-        }catch (Exception e) {
-            log.error("[service-error-giveDice]", e);
-            return null;
-        }
+        return giveDiceBiz.process(request);
     }
 
     @Override
     public DoDiceResponse doDice(DoDiceRequest request) {
-        try {
-            return doDiceBiz.doDice(request);
-        }catch (Exception e) {
-            log.error("[service-error-doDice]", e);
-            return null;
-        }
+        return doDiceBiz.process(request);
     }
 }

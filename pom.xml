@@ -34,19 +34,20 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <java.version>11</java.version>
-        <spring.boot.version>2.3.2.RELEASE</spring.boot.version>
         <spring.cloud.version>Hoxton.SR8</spring.cloud.version>
         <spring.zuul>2.0.0.RELEASE</spring.zuul>
         <spring.hystrix>1.4.5.RELEASE</spring.hystrix>
         <spring.netflix-eureka>2.2.5.RELEASE</spring.netflix-eureka>
         <spring.feign>2.2.5.RELEASE</spring.feign>
-        <spring.aop>2.3.2.RELEASE</spring.aop>
-        <commons.configuration>1.10</commons.configuration>
+        <commons-configuration.version>1.10</commons-configuration.version>
         <hdrhistogram.version>2.1.12</hdrhistogram.version>
-        <commons-io>2.4</commons-io>
+        <commons-io.version>2.4</commons-io.version>
+        <mybatis-plus.version>3.5.1</mybatis-plus.version>
+        <swagger.version>2.9.2</swagger.version>
+        <fastjson.version>1.2.80</fastjson.version>
     </properties>
 
-    <!-- 禁止在子项目中指定任何版本！！！ -->
+    <!-- 1、禁止在子项目中指定任何版本！2、禁止在子项目中排除某个依赖！-->
     <dependencyManagement>
         <dependencies>
             <!-- spring start -->
@@ -138,14 +139,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-aop</artifactId>
-                <version>${spring.aop}</version>
-            </dependency>
-            <dependency>
                 <groupId>commons-configuration</groupId>
                 <artifactId>commons-configuration</artifactId>
-                <version>${commons.configuration}</version>
+                <version>${commons-configuration.version}</version>
             </dependency>
             <dependency>
                 <artifactId>HdrHistogram</artifactId>
@@ -155,7 +151,12 @@
             <dependency>
                 <artifactId>commons-io</artifactId>
                 <groupId>commons-io</groupId>
-                <version>${commons-io}</version>
+                <version>${commons-io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
             </dependency>
             <!-- spring end -->
             <!-- jmj start -->
@@ -183,52 +184,72 @@
                 <groupId>com.wllfengshu.jmj.provider.api.dice</groupId>
                 <artifactId>jmj-provider-api-dice</artifactId>
                 <version>${jmj.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.baomidou</groupId>
+                        <artifactId>mybatis-plus-boot-starter</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>com.wllfengshu.jmj.provider.api.hall</groupId>
                 <artifactId>jmj-provider-api-hall</artifactId>
                 <version>${jmj.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.baomidou</groupId>
+                        <artifactId>mybatis-plus-boot-starter</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>com.wllfengshu.jmj.provider.api.majiang</groupId>
                 <artifactId>jmj-provider-api-majiang</artifactId>
                 <version>${jmj.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.baomidou</groupId>
+                        <artifactId>mybatis-plus-boot-starter</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>com.wllfengshu.jmj.provider.api.player</groupId>
                 <artifactId>jmj-provider-api-player</artifactId>
                 <version>${jmj.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.baomidou</groupId>
+                        <artifactId>mybatis-plus-boot-starter</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>com.wllfengshu.jmj.provider.api.room</groupId>
                 <artifactId>jmj-provider-api-room</artifactId>
                 <version>${jmj.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.baomidou</groupId>
+                        <artifactId>mybatis-plus-boot-starter</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <!-- jmj end -->
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger2</artifactId>
-                <version>2.9.2</version>
+                <version>${swagger.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
-                <version>2.9.2</version>
-            </dependency>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>1.18.20</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>3.5</version>
+                <version>${swagger.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
-                <version>1.2.80</version>
+                <version>${fastjson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
