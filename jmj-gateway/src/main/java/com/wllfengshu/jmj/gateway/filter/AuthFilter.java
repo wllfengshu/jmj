@@ -4,8 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
-import com.wllfengshu.jmj.common.entity.gateway.GatewayRequest;
 import com.wllfengshu.jmj.common.entity.gateway.GatewayLoginInfo;
+import com.wllfengshu.jmj.common.entity.gateway.GatewayRequest;
 import com.wllfengshu.jmj.common.entity.gateway.constant.GatewayConstant;
 import com.wllfengshu.jmj.provider.api.player.PlayerService;
 import com.wllfengshu.jmj.provider.api.player.model.PlayerPO;
@@ -13,6 +13,7 @@ import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayer
 import com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken.GivePlayerByTokenResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cglib.beans.BeanCopier;
@@ -129,8 +130,8 @@ public class AuthFilter extends ZuulFilter {
      * @return
      */
     private Object routingFailed(RequestContext rc) {
-        rc.setSendZuulResponse(false);
-        rc.setResponseStatusCode(401);
+        rc.setSendZuulResponse(Boolean.FALSE);
+        rc.setResponseStatusCode(NumberUtils.INTEGER_MINUS_ONE);
         rc.addZuulResponseHeader("Content-Type","text/html;charset=utf-8");
         rc.setResponseBody(pageNoPermissionMsg);
         log.warn("[request-routingFailed]");

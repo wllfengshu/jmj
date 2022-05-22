@@ -9,4 +9,15 @@ import lombok.Data;
  */
 @Data
 public class RegisterResponse extends GatewayResponse {
+
+    /**
+     * 业务状态码
+     */
+    private Integer bizResponseCode;
+
+    /**
+     * 业务响应描述
+     */
+    private String bizResponseDesc;
+
 }

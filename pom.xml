@@ -161,23 +161,8 @@
             <!-- spring end -->
             <!-- jmj start -->
             <dependency>
-                <groupId>com.wllfengshu.jmj.common.util</groupId>
-                <artifactId>jmj-common-util</artifactId>
-                <version>${jmj.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.wllfengshu.jmj.common.config</groupId>
-                <artifactId>jmj-common-config</artifactId>
-                <version>${jmj.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.wllfengshu.jmj.common.entity</groupId>
-                <artifactId>jmj-common-entity</artifactId>
-                <version>${jmj.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.wllfengshu.jmj.common.api</groupId>
-                <artifactId>jmj-common-api</artifactId>
+                <groupId>com.wllfengshu.jmj.common</groupId>
+                <artifactId>jmj-common</artifactId>
                 <version>${jmj.version}</version>
             </dependency>
             <dependency>

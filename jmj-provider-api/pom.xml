@@ -38,20 +38,8 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.wllfengshu.jmj.common.entity</groupId>
-            <artifactId>jmj-common-entity</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.wllfengshu.jmj.common.util</groupId>
-            <artifactId>jmj-common-util</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.wllfengshu.jmj.common.api</groupId>
-            <artifactId>jmj-common-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.wllfengshu.jmj.common.config</groupId>
-            <artifactId>jmj-common-config</artifactId>
+            <groupId>com.wllfengshu.jmj.common</groupId>
+            <artifactId>jmj-common</artifactId>
         </dependency>
     </dependencies>
 </project>

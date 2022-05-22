@@ -1,7 +1,7 @@
 package com.wllfengshu.jmj.common.api.inter;
 
 import com.wllfengshu.jmj.common.entity.gateway.GatewayResponse;
-import com.wllfengshu.jmj.common.entity.gateway.enumeration.ResponseStatusEnum;
+import com.wllfengshu.jmj.common.entity.gateway.enumeration.GatewayResponseCodeEnum;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -51,12 +51,12 @@ public abstract class AbstractInterfaceBase<Request, Response extends GatewayRes
             }
             // 2run
             Response response = doProcess(request);
-            response.setResponseStatusEnum(ResponseStatusEnum.SUCCESS);
+            response.setGatewayResponseCodeEnum(GatewayResponseCodeEnum.SUCCESS);
             return response;
         }catch (Exception e) {
             log.error("[process-error] actionName = {}", this.giveActionName(), e);
             Response response = (Response) new GatewayResponse();
-            response.setResponseStatusEnum(ResponseStatusEnum.FAIL);
+            response.setGatewayResponseCodeEnum(GatewayResponseCodeEnum.FAIL);
             return response;
         }
     }

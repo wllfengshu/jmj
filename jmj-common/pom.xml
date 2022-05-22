@@ -11,16 +11,20 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wllfengshu.jmj.common</groupId>
     <artifactId>jmj-common</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>jmj-common-util</module>
-        <module>jmj-common-config</module>
-        <module>jmj-common-entity</module>
-        <module>jmj-common-api</module>
-    </modules>
+    <packaging>jar</packaging>
+    <name>jmj-common</name>
+    <version>1.0</version>
+    <description>公共组件</description>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -36,6 +40,14 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
     </dependencies>
 </project>

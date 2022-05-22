@@ -17,6 +17,16 @@ public class RegisterRequest {
     private String username;
 
     /**
+     * 昵称
+     */
+    private String nickname;
+
+    /**
+     * 头像地址
+     */
+    private String headPortraitUrl;
+
+    /**
      * 密码
      */
     @NonNull

@@ -18,7 +18,7 @@ import java.util.List;
 @Configuration
 @EnableSwagger2
 @Primary
-public class SwaggerProvider  implements SwaggerResourcesProvider {
+public class SwaggerProvider implements SwaggerResourcesProvider {
 
     @Autowired
     private RouteLocator routeLocator;
