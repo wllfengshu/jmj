@@ -18,13 +18,10 @@
         <module>jmj-gateway</module>
         <module>jmj-common</module>
         <module>jmj-provider</module>
-        <module>jmj-consumer</module>
         <module>jmj-hystrix-dashboard</module>
         <module>jmj-provider-api</module>
         <module>jmj-config-server</module>
-        <module>jmj-config-client</module>
         <module>jmj-config-nat-server</module>
-        <module>jmj-config-nat-client</module>
     </modules>
 
     <properties>
