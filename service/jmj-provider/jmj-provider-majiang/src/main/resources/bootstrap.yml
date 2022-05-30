@@ -1,0 +1,33 @@
+spring:
+  zipkin:
+    base-url: http://jmj:8007
+  datasource:
+    url: jdbc:mysql://jmj:3306/jmj?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    database: 0
+    host: jmj
+    port: 6379
+    timeout: PT10S
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:root@jmj:8000/eureka/
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+      field-strategy: not_empty
+      column-underline: true
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+      db-type: mysql
+    refresh: false
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+  mapper-locations: /mapper/**/*Mapper.xml
