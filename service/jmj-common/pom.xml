@@ -53,5 +53,11 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.github.dzuvic</groupId>
+            <artifactId>jtsgen-processor</artifactId>
+            <version>0.5.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>

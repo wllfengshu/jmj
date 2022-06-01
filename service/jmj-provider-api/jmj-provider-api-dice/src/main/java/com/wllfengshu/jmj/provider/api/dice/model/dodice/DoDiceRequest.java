@@ -1,6 +1,7 @@
 package com.wllfengshu.jmj.provider.api.dice.model.dodice;
 
 import com.wllfengshu.jmj.common.entity.gateway.GatewayRequest;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
@@ -10,8 +11,6 @@ import lombok.Data;
 @Data
 public class DoDiceRequest extends GatewayRequest {
 
-    /**
-     * 骰子数量
-     */
+    @ApiModelProperty("骰子数量")
     private Integer diceNum;
 }

@@ -1,6 +1,7 @@
 package com.wllfengshu.jmj.provider.api.dice.model.dodice;
 
 import com.wllfengshu.jmj.provider.api.dice.model.DicePO;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
@@ -10,13 +11,9 @@ import lombok.Data;
 @Data
 public class DiceModel extends DicePO {
 
-    /**
-     * 点数
-     */
+    @ApiModelProperty("点数")
     private Integer point;
 
-    /**
-     * 对应点数的材质地址
-     */
+    @ApiModelProperty("对应点数的材质地址")
     private String texturePointUrl;
 }

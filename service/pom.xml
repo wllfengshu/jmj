@@ -22,6 +22,7 @@
         <module>jmj-provider-api</module>
         <module>jmj-config-server</module>
         <module>jmj-config-nat-server</module>
+        <module>jmj-java-to-typescript</module>
     </modules>
 
     <properties>

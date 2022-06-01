@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>jmj</artifactId>
+        <groupId>com.wllfengshu</groupId>
+        <version>1.0</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.wllfengshu.jmj.java.to.typescript</groupId>
+    <artifactId>jmj-java-to-typescript</artifactId>
+    <packaging>jar</packaging>
+    <name>jmj-java-to-typescript</name>
+    <version>1.0</version>
+    <description>java代码转typeScript代码</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.wllfengshu.jmj.provider.api.dice</groupId>
+            <artifactId>jmj-provider-api-dice</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.wllfengshu.jmj.provider.api.hall</groupId>
+            <artifactId>jmj-provider-api-hall</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.wllfengshu.jmj.provider.api.majiang</groupId>
+            <artifactId>jmj-provider-api-majiang</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.wllfengshu.jmj.provider.api.player</groupId>
+            <artifactId>jmj-provider-api-player</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.wllfengshu.jmj.provider.api.room</groupId>
+            <artifactId>jmj-provider-api-room</artifactId>
+        </dependency>
+    </dependencies>
+</project>
