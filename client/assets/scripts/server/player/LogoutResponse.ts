@@ -1,0 +1,3 @@
+interface LogoutResponse extends GatewayResponse {
+
+}

@@ -1,5 +1,4 @@
-import LoginRequest from "../../server/model/LoginRequest";
-import PlayerServer from "../../server/PlayerServer";
+import PlayerService from "../../server/PlayerService";
 import StringUtil from "../../utils/StringUtil";
 
 const {ccclass, property} = cc._decorator;
@@ -19,10 +18,11 @@ export default class UserLoginControl extends cc.Component {
             return;
         }
         
-        let request = new LoginRequest();
-        request.username = username.string;
-        request.password = password.string;
-        let response = PlayerServer.instance.login(request);
+        let request : LoginRequest = {
+            username : username.string,
+            password :  password.string
+        }
+        let response = PlayerService.instance.login(request);
         if(null != response && null != response.token) {
             cc.sys.localStorage.setItem("token", response.token);
             cc.sys.localStorage.setItem("playerPO", response.playerPO);

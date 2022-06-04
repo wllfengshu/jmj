@@ -1,0 +1,4 @@
+interface GivePlayerByTokenRequest {
+     // 
+     token?: string;
+}

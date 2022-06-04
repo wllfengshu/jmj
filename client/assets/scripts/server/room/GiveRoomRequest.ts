@@ -1,0 +1,3 @@
+interface GiveRoomRequest extends GatewayRequest {
+
+}

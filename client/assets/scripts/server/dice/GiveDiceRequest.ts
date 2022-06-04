@@ -1,0 +1,3 @@
+interface GiveDiceRequest extends GatewayRequest {
+
+}

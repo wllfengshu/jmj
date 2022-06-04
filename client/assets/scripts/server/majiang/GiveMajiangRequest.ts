@@ -1,0 +1,3 @@
+interface GiveMajiangRequest extends GatewayRequest {
+
+}

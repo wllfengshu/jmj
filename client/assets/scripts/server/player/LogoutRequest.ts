@@ -1,0 +1,3 @@
+interface LogoutRequest extends GatewayRequest {
+
+}

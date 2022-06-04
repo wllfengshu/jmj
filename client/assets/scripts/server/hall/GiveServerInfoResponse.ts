@@ -1,0 +1,3 @@
+interface GiveServerInfoResponse extends GatewayResponse {
+
+}

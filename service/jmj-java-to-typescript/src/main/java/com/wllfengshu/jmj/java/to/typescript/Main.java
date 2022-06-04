@@ -1,5 +1,7 @@
 package com.wllfengshu.jmj.java.to.typescript;
 
+import com.wllfengshu.jmj.java.to.typescript.work.JavaToTypeScript;
+
 /**
  * 入口
  *
@@ -8,7 +10,21 @@ package com.wllfengshu.jmj.java.to.typescript;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    private static final String COCOS_BASE_PATH = "E:\\005java\\001game\\maJiang\\jmj\\client\\assets\\scripts\\server\\";
+    private static final String JMJ_API_PACKAGE = "com.wllfengshu.jmj.provider.api.";
 
+    public static void main(String[] args) {
+        // 1生成公共类
+        JavaToTypeScript.run("com.wllfengshu.jmj.common.entity.gateway", COCOS_BASE_PATH + "gateway\\");
+        // 2生成实体类(包含接口)
+        run("dice");
+        run("hall");
+        run("majiang");
+        run("player");
+        run("room");
+    }
+
+    private static void run(String modularName) {
+        JavaToTypeScript.run(JMJ_API_PACKAGE + modularName, COCOS_BASE_PATH + modularName);
     }
 }

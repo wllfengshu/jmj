@@ -35,17 +35,17 @@ public class ControllerAspect {
         Class<?>[] paramTypeArray = ((MethodSignature) pjp.getSignature()).getParameterTypes();
         if (ArrayUtils.isEmpty(paramArray)
             || ArrayUtils.isEmpty(paramTypeArray)) {
-            return pjp.proceed();
+            return returnAndSaveResponseLog(pjp.proceed());
         }
         log.info("[request] = {}", JSON.toJSONString(paramArray));
 
         // 只允许一个入参，否则不处理
         if (paramTypeArray.length != 1) {
-            return pjp.proceed();
+            return returnAndSaveResponseLog(pjp.proceed());
         }
         // 必须是GatewayEntity的子类，否则不处理
         if (!GatewayRequest.class.isAssignableFrom(paramTypeArray[0])) {
-            return pjp.proceed();
+            return returnAndSaveResponseLog(pjp.proceed());
         }
 
         // 给入参赋值
@@ -60,6 +60,19 @@ public class ControllerAspect {
 
         paramArray[0] = inputObject;
         Object result = pjp.proceed(paramArray);
+        return returnAndSaveResponseLog(result);
+    }
+
+    /**
+     * 记录响应日志
+     *
+     * @param result
+     * @return
+     */
+    private Object returnAndSaveResponseLog(Object result) {
+        if (null == result) {
+            return null;
+        }
         log.info("[response] = {}", JSON.toJSONString(result));
         return result;
     }

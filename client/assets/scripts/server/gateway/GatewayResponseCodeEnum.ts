@@ -1,0 +1,4 @@
+enum GatewayResponseCodeEnum {
+     SUCCESS,
+     FAIL
+}
