@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import static com.wllfengshu.jmj.provider.player.constant.ProviderConstant.REDIS_PREFIX_TOKEN_TO_PLAYER;
+
 /**
  * @author wangll
  * @date 2022-05-08 19:12
@@ -33,7 +35,7 @@ public class GivePlayerByTokenBiz extends AbstractInterfaceBase<GivePlayerByToke
 
     @Override
     public GivePlayerByTokenResponse doProcess(GivePlayerByTokenRequest request) {
-        PlayerPO player = redisTemplate.opsForValue().get(request.getToken());
+        PlayerPO player = redisTemplate.opsForValue().get(REDIS_PREFIX_TOKEN_TO_PLAYER + request.getToken());
         if (null == player) {
             GivePlayerByTokenResponse response = new GivePlayerByTokenResponse();
             response.setBizResponseCode(ProviderEnum.NO_LOGIN.getCode());

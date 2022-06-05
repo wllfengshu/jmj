@@ -1,4 +1,5 @@
 import PlayerService from "../../server/PlayerService";
+import ConstantUtil from "../../utils/ConstantUtil";
 import StringUtil from "../../utils/StringUtil";
 
 const {ccclass, property} = cc._decorator;
@@ -23,9 +24,9 @@ export default class UserLoginControl extends cc.Component {
             password :  password.string
         }
         let response = PlayerService.instance.login(request);
-        if(null != response && null != response.token) {
-            cc.sys.localStorage.setItem("token", response.token);
-            cc.sys.localStorage.setItem("playerPO", response.playerPO);
+        if(null != response && StringUtil.isNotBlack(response.token)) {
+            cc.sys.localStorage.setItem(ConstantUtil.TOKEN, response.token);
+            cc.sys.localStorage.setItem(ConstantUtil.LOGIN_INFO, response.playerPO);
             cc.director.loadScene("hall");
             return;
         }
@@ -41,5 +42,12 @@ export default class UserLoginControl extends cc.Component {
         this.node.active = false;
         let alertMsg = this.node.getChildByName("alert_msg").getComponent(cc.Label);
         alertMsg.string = "登陆";
+    }
+
+    /**
+     * 点击注册
+     */
+     onBtnRegisterClicked() {
+        cc.director.loadScene("createrole");
     }
 }

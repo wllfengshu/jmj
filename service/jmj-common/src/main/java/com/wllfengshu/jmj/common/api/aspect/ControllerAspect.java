@@ -33,11 +33,11 @@ public class ControllerAspect {
         Object[] paramArray = pjp.getArgs();
         // 获取方法参数类型数组
         Class<?>[] paramTypeArray = ((MethodSignature) pjp.getSignature()).getParameterTypes();
+        log.info("[request] = {}", JSON.toJSONString(paramArray));
         if (ArrayUtils.isEmpty(paramArray)
             || ArrayUtils.isEmpty(paramTypeArray)) {
             return returnAndSaveResponseLog(pjp.proceed());
         }
-        log.info("[request] = {}", JSON.toJSONString(paramArray));
 
         // 只允许一个入参，否则不处理
         if (paramTypeArray.length != 1) {

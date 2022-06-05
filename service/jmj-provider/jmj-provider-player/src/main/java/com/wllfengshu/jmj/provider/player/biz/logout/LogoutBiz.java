@@ -2,7 +2,6 @@ package com.wllfengshu.jmj.provider.player.biz.logout;
 
 import com.wllfengshu.jmj.common.api.inter.AbstractInterfaceBase;
 import com.wllfengshu.jmj.common.entity.provider.enumeration.CommonEnum;
-import com.wllfengshu.jmj.provider.api.player.model.PlayerPO;
 import com.wllfengshu.jmj.provider.api.player.model.logout.LogoutRequest;
 import com.wllfengshu.jmj.provider.api.player.model.logout.LogoutResponse;
 import org.apache.commons.lang3.StringUtils;
@@ -12,6 +11,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;
 
+import static com.wllfengshu.jmj.provider.player.constant.ProviderConstant.REDIS_PREFIX_TOKEN_TO_PLAYER;
+import static com.wllfengshu.jmj.provider.player.constant.ProviderConstant.REDIS_PREFIX_USERNAME_TO_TOKEN;
+
 /**
  * @author wangll
  * @date 2022-05-21 16:55
@@ -20,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 public class LogoutBiz extends AbstractInterfaceBase<LogoutRequest, LogoutResponse> {
 
     @Autowired
-    private RedisTemplate<String, PlayerPO> redisTemplate;
+    private RedisTemplate<String, Object> redisTemplate;
 
     @Override
     protected String giveActionName() {
@@ -29,12 +31,14 @@ public class LogoutBiz extends AbstractInterfaceBase<LogoutRequest, LogoutRespon
 
     @Override
     protected boolean checkRequest(LogoutRequest request) {
-        return StringUtils.isNoneEmpty(request.getToken());
+        return StringUtils.isNoneEmpty(request.getToken())
+                && null != request.getGatewayLoginInfo();
     }
 
     @Override
     public LogoutResponse doProcess(LogoutRequest request) {
-        redisTemplate.expire(request.getToken(), 0, TimeUnit.MILLISECONDS);
+        redisTemplate.expire(REDIS_PREFIX_TOKEN_TO_PLAYER + request.getToken(), 0, TimeUnit.MILLISECONDS);
+        redisTemplate.expire(REDIS_PREFIX_USERNAME_TO_TOKEN + request.getGatewayLoginInfo().getUsername(), 0, TimeUnit.MILLISECONDS);
         LogoutResponse response = new LogoutResponse();
         response.setBizResponseCode(CommonEnum.SUCCESS.getCode());
         return response;

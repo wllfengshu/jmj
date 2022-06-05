@@ -1,7 +1,6 @@
-import { json } from "stream/consumers";
+import ConstantUtil from "./ConstantUtil";
 import LogUtil from "./LogUtil";
-
-const {ccclass, property} = cc._decorator;
+import StringUtil from "./StringUtil";
 
 /**
  * http工具类
@@ -13,13 +12,17 @@ export default class HttpUtil {
      * 
      * @param url 请求地址
      * @param params 参数
+     * @param token 登陆凭证（可选，将放到请求头中）
      */
-    public static sendHttpPost(url : string, params : any) : string {
-        LogUtil.info("HttpUtil.sendHttpPost", "url=" + url + ",request=" + JSON.stringify(params));
+    public static sendHttpPost(url : string, params : any, token ?: string) : string {
+        LogUtil.info("HttpUtil.sendHttpPost", "url=" + url + ",request=" + JSON.stringify(params) + ",token=" + token);
         let result = "";
         let xhr = cc.loader.getXMLHttpRequest();
         xhr.open("POST", url, false);
         xhr.setRequestHeader("Content-Type", "Application/json; charset=utf-8");
+        if(StringUtil.isNotBlack(token)) {
+            xhr.setRequestHeader(ConstantUtil.TOKEN, token);
+        }
         xhr.onreadystatechange = ()=> {
             if(xhr.readyState === 4
                 && xhr.status >= 200

@@ -1,5 +1,7 @@
 package com.wllfengshu.jmj.provider.api.room;
 
+import com.wllfengshu.jmj.provider.api.room.model.createroom.CreateRoomRequest;
+import com.wllfengshu.jmj.provider.api.room.model.createroom.CreateRoomResponse;
 import com.wllfengshu.jmj.provider.api.room.model.giveroom.GiveRoomRequest;
 import com.wllfengshu.jmj.provider.api.room.model.giveroom.GiveRoomResponse;
 import io.swagger.annotations.ApiOperation;
@@ -17,4 +19,8 @@ public interface RoomService {
     @ApiOperation("获取房间")
     @PostMapping(value = "/giveRoom")
     GiveRoomResponse giveRoom(@RequestBody GiveRoomRequest request);
+
+    @ApiOperation("创建房间")
+    @PostMapping(value = "/createRoom")
+    CreateRoomResponse createRoom(@RequestBody CreateRoomRequest request);
 }

@@ -11,10 +11,10 @@ public class GatewayConstant {
     /**
      * 登陆的唯一凭证
      */
-    public static final String TOKEN = "Token";
+    public static final String TOKEN = "token";
 
     /**
      * 登陆信息
      */
-    public static final String LOGIN_INFO = "LoginInfo";
+    public static final String LOGIN_INFO = "loginInfo";
 }

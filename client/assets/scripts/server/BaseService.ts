@@ -1,3 +1,4 @@
+import ConstantUtil from "../utils/ConstantUtil";
 import HttpUtil from "../utils/HttpUtil";
 
 /**
@@ -7,11 +8,6 @@ import HttpUtil from "../utils/HttpUtil";
  export default class BaseService {
 
     /**
-     * 请求的地址前缀（所有接口都必须通过网关调用）
-     */
-    private static readonly httpDomain : string = "http://localhost:8001/gateway/";
-
-    /**
      * 调用接口
      * 
      * @param serverName 服务名称（对应后端服务的服务名，会拼接在请求的路径上）
@@ -19,8 +15,9 @@ import HttpUtil from "../utils/HttpUtil";
      * @param params 参数（全部会被转为json字符串后发送）
      */
     public callInterface(serverName : string, operationName : string, params : any) : string {
-        let url = BaseService.httpDomain + serverName + "/" + operationName;
-        return HttpUtil.sendHttpPost(url, params);
+        let url = ConstantUtil.httpDomain + serverName + "/" + operationName;
+        let token =  cc.sys.localStorage.getItem(ConstantUtil.TOKEN);
+        return HttpUtil.sendHttpPost(url, params, token);
     }
 
 }

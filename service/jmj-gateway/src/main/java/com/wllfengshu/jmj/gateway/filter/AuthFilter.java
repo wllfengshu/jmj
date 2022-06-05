@@ -75,13 +75,13 @@ public class AuthFilter extends ZuulFilter {
         // 2必须是post请求
         String method = hsr.getMethod();
         if (!RequestMethod.POST.toString().equals(method)) {
-            log.warn("[request-mastPost] = {}", method);
+            log.error("[request-mastPost] = {}", method);
             return this.routingFailed(rc, "Mast post");
         }
         // 3获取token
         String token = hsr.getHeader(GatewayConstant.TOKEN);
         if (StringUtils.isEmpty(token)) {
-            log.warn("[request-needToken]");
+            log.error("[request-needToken]");
             return this.routingFailed(rc, "Need token");
         }
 

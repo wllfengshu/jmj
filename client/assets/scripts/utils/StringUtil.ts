@@ -1,6 +1,3 @@
-import { json } from "stream/consumers";
-
-const {ccclass, property} = cc._decorator;
 
 /**
  * 字符串工具类

@@ -1,4 +1,5 @@
 import PlayerService from "../../server/PlayerService";
+import ConstantUtil from "../../utils/ConstantUtil";
 
 const {ccclass, property} = cc._decorator;
 
@@ -14,8 +15,8 @@ export default class LoginScenesControl extends cc.Component {
             password : "admin"
         }
         let response = PlayerService.instance.login(request);
-        cc.sys.localStorage.setItem("token", response.token);
-        cc.sys.localStorage.setItem("playerPO", response.playerPO);
+        cc.sys.localStorage.setItem(ConstantUtil.TOKEN, response.token);
+        cc.sys.localStorage.setItem(ConstantUtil.LOGIN_INFO, response.playerPO);
         cc.director.loadScene("hall");
     }
 
