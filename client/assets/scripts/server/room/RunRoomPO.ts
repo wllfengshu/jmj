@@ -5,4 +5,6 @@ interface RunRoomPO {
      roomPassword?: string;
      // 
      playerNum?: number;
+     // 
+     playerUsernames?: String[];
 }

@@ -4,6 +4,8 @@ import com.wllfengshu.jmj.provider.api.room.model.createroom.CreateRoomRequest;
 import com.wllfengshu.jmj.provider.api.room.model.createroom.CreateRoomResponse;
 import com.wllfengshu.jmj.provider.api.room.model.giveroom.GiveRoomRequest;
 import com.wllfengshu.jmj.provider.api.room.model.giveroom.GiveRoomResponse;
+import com.wllfengshu.jmj.provider.api.room.model.joinroom.JoinRoomRequest;
+import com.wllfengshu.jmj.provider.api.room.model.joinroom.JoinRoomResponse;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,4 +25,8 @@ public interface RoomService {
     @ApiOperation("创建房间")
     @PostMapping(value = "/createRoom")
     CreateRoomResponse createRoom(@RequestBody CreateRoomRequest request);
+
+    @ApiOperation("加入房间")
+    @PostMapping(value = "/joinRoom")
+    JoinRoomResponse joinRoom(@RequestBody JoinRoomRequest request);
 }

@@ -27,4 +27,6 @@ public class ProviderConstant {
      * redis中存放的前缀（username为key，roomId为value）
      */
     public static final String REDIS_PREFIX_USERNAME_TO_ROOM_ID = REDIS_PREFIX + "usernameToRoomId:";
+
+
 }

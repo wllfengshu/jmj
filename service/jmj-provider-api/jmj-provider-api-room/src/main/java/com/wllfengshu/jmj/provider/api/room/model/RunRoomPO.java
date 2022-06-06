@@ -33,4 +33,9 @@ public class RunRoomPO implements Serializable {
      * 玩家数量
      */
     private Integer playerNum;
+
+    /**
+     * 玩家集合
+     */
+    private String[] playerUsernames;
 }

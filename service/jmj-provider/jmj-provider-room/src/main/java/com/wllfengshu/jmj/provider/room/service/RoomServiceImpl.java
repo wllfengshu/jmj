@@ -5,8 +5,11 @@ import com.wllfengshu.jmj.provider.api.room.model.createroom.CreateRoomRequest;
 import com.wllfengshu.jmj.provider.api.room.model.createroom.CreateRoomResponse;
 import com.wllfengshu.jmj.provider.api.room.model.giveroom.GiveRoomRequest;
 import com.wllfengshu.jmj.provider.api.room.model.giveroom.GiveRoomResponse;
+import com.wllfengshu.jmj.provider.api.room.model.joinroom.JoinRoomRequest;
+import com.wllfengshu.jmj.provider.api.room.model.joinroom.JoinRoomResponse;
 import com.wllfengshu.jmj.provider.room.biz.createroom.CreateRoomBiz;
 import com.wllfengshu.jmj.provider.room.biz.giveroom.GiveRoomBiz;
+import com.wllfengshu.jmj.provider.room.biz.joinroom.JoinRoomBiz;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +28,8 @@ public class RoomServiceImpl implements RoomService {
     private GiveRoomBiz giveRoomBiz;
     @Autowired
     private CreateRoomBiz createRoomBiz;
+    @Autowired
+    private JoinRoomBiz joinRoomBiz;
 
     @Override
     public GiveRoomResponse giveRoom(GiveRoomRequest request) {
@@ -34,5 +39,10 @@ public class RoomServiceImpl implements RoomService {
     @Override
     public CreateRoomResponse createRoom(CreateRoomRequest request) {
         return createRoomBiz.process(request);
+    }
+
+    @Override
+    public JoinRoomResponse joinRoom(JoinRoomRequest request) {
+        return joinRoomBiz.process(request);
     }
 }

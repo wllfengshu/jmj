@@ -237,7 +237,7 @@
       "array": [
         0,
         0,
-        342.18828767032636,
+        342.54117179625564,
         0,
         0,
         0,
@@ -4748,7 +4748,7 @@
         "__id__": 208
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 213
@@ -4812,7 +4812,7 @@
       "__id__": 95
     },
     "_children": [],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 97
@@ -5022,7 +5022,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Num25",
+    "_name": "kuang",
     "_objFlags": 0,
     "_parent": {
       "__id__": 95
@@ -5131,7 +5131,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "PopupScene20",
+    "_name": "popup_scene",
     "_objFlags": 0,
     "_parent": {
       "__id__": 95
@@ -5199,7 +5199,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "msg_label",
     "_objFlags": 0,
     "_parent": {
       "__id__": 104
@@ -6270,8 +6270,8 @@
     "target": {
       "__id__": 95
     },
-    "component": "JoinGameInput",
-    "_componentId": "",
+    "component": "",
+    "_componentId": "554f7roXrFAJpmq/ipPuFgv",
     "handler": "onN0Clicked",
     "customEventData": ""
   },
@@ -6468,8 +6468,8 @@
     "target": {
       "__id__": 95
     },
-    "component": "JoinGameInput",
-    "_componentId": "",
+    "component": "",
+    "_componentId": "554f7roXrFAJpmq/ipPuFgv",
     "handler": "onN1Clicked",
     "customEventData": ""
   },
@@ -6666,8 +6666,8 @@
     "target": {
       "__id__": 95
     },
-    "component": "JoinGameInput",
-    "_componentId": "",
+    "component": "",
+    "_componentId": "554f7roXrFAJpmq/ipPuFgv",
     "handler": "onN2Clicked",
     "customEventData": ""
   },
@@ -6864,8 +6864,8 @@
     "target": {
       "__id__": 95
     },
-    "component": "JoinGameInput",
-    "_componentId": "",
+    "component": "",
+    "_componentId": "554f7roXrFAJpmq/ipPuFgv",
     "handler": "onN3Clicked",
     "customEventData": ""
   },
@@ -7062,8 +7062,8 @@
     "target": {
       "__id__": 95
     },
-    "component": "JoinGameInput",
-    "_componentId": "",
+    "component": "",
+    "_componentId": "554f7roXrFAJpmq/ipPuFgv",
     "handler": "onN4Clicked",
     "customEventData": ""
   },
@@ -7260,8 +7260,8 @@
     "target": {
       "__id__": 95
     },
-    "component": "JoinGameInput",
-    "_componentId": "",
+    "component": "",
+    "_componentId": "554f7roXrFAJpmq/ipPuFgv",
     "handler": "onN5Clicked",
     "customEventData": ""
   },
@@ -7458,8 +7458,8 @@
     "target": {
       "__id__": 95
     },
-    "component": "JoinGameInput",
-    "_componentId": "",
+    "component": "",
+    "_componentId": "554f7roXrFAJpmq/ipPuFgv",
     "handler": "onN6Clicked",
     "customEventData": ""
   },
@@ -7657,7 +7657,7 @@
       "__id__": 95
     },
     "component": "",
-    "_componentId": "10a1c8jz95Ju4NnpkOWUfin",
+    "_componentId": "554f7roXrFAJpmq/ipPuFgv",
     "handler": "onN7Clicked",
     "customEventData": ""
   },
@@ -7854,8 +7854,8 @@
     "target": {
       "__id__": 95
     },
-    "component": "JoinGameInput",
-    "_componentId": "",
+    "component": "",
+    "_componentId": "554f7roXrFAJpmq/ipPuFgv",
     "handler": "onN8Clicked",
     "customEventData": ""
   },
@@ -8052,8 +8052,8 @@
     "target": {
       "__id__": 95
     },
-    "component": "JoinGameInput",
-    "_componentId": "",
+    "component": "",
+    "_componentId": "554f7roXrFAJpmq/ipPuFgv",
     "handler": "onN9Clicked",
     "customEventData": ""
   },
@@ -8247,9 +8247,11 @@
   },
   {
     "__type__": "cc.ClickEvent",
-    "target": null,
+    "target": {
+      "__id__": 95
+    },
     "component": "",
-    "_componentId": "10a1c8jz95Ju4NnpkOWUfin",
+    "_componentId": "554f7roXrFAJpmq/ipPuFgv",
     "handler": "onResetClicked",
     "customEventData": ""
   },
@@ -8446,8 +8448,8 @@
     "target": {
       "__id__": 95
     },
-    "component": "JoinGameInput",
-    "_componentId": "",
+    "component": "",
+    "_componentId": "554f7roXrFAJpmq/ipPuFgv",
     "handler": "onDelClicked",
     "customEventData": ""
   },
@@ -9297,8 +9299,8 @@
     "target": {
       "__id__": 95
     },
-    "component": "JoinGameInput",
-    "_componentId": "",
+    "component": "",
+    "_componentId": "554f7roXrFAJpmq/ipPuFgv",
     "handler": "onCloseClicked",
     "customEventData": ""
   },
@@ -9314,35 +9316,14 @@
     "sync": false
   },
   {
-    "__type__": "10a1c8jz95Ju4NnpkOWUfin",
+    "__type__": "554f7roXrFAJpmq/ipPuFgv",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 95
     },
     "_enabled": true,
-    "nums": [
-      {
-        "__id__": 191
-      },
-      {
-        "__id__": 194
-      },
-      {
-        "__id__": 197
-      },
-      {
-        "__id__": 200
-      },
-      {
-        "__id__": 203
-      },
-      {
-        "__id__": 206
-      }
-    ],
-    "_inputIndex": 0,
-    "_id": "2bhClmFlFCY6Y+7CVKunCV"
+    "_id": "eaJJSsYzNBMqT46mlHcy47"
   },
   {
     "__type__": "cc.PrefabInfo",
