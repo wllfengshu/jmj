@@ -48,8 +48,7 @@ public class ClassFileUtil {
                 .collect(Collectors.toList());
 
         // 3获取class文件，并加载到内存
-        return ClassUtils.convertClassNamesToClasses(className)
-                .stream()
+        return ClassUtils.convertClassNamesToClasses(className).stream()
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
     }

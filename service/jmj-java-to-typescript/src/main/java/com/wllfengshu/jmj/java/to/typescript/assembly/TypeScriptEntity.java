@@ -15,14 +15,14 @@ import java.util.stream.Collectors;
  * @date 2022-06-04 18:28
  */
 @Slf4j
-public class TypeScriptUtil {
+public class TypeScriptEntity {
 
     private static final String CLASS_TEMPLATE = "interface %s {\n%s\n}\n";
     private static final String CLASS_TEMPLATE_EXTENDS = "interface %s extends %s {\n%s\n}\n";
     private static final String CLASS_FIELD_TEMPLATE = "     // %s\n     %s?: %s;";
     private static final String SERIAL_VERSION_UID = "serialVersionUID";
     private static final Map<String, String> TYPE_MAP = new HashMap<>();
-    private TypeScriptUtil() {}
+    private TypeScriptEntity() {}
     static {
         TYPE_MAP.put("byte", "string");
         TYPE_MAP.put("Byte", "string");
@@ -48,26 +48,13 @@ public class TypeScriptUtil {
         TYPE_MAP.put("Map", "{}");
     }
 
-    public static List<String> getAllTypeScript(List<Class<?>> classes) {
-        return classes.stream()
-                .map(c -> {
-                    if (c.isEnum()) {
-                        return TypeScriptEnum.getTypeScriptForEnum(c);
-                    }else if (c.isInterface()) {
-                        return TypeScriptService.getTypeScriptForService(c);
-                    }
-                    return getTypeScript(c);
-                })
-                .collect(Collectors.toList());
-    }
-
     /**
      * 转换类型
      *
      * @param clazz
      * @return
      */
-    private static String getTypeScript(Class<?> clazz) {
+    public static String getTypeScript(Class<?> clazz) {
         Class<?> superclass = clazz.getSuperclass();
 
         Field[] declaredFields = clazz.getDeclaredFields();

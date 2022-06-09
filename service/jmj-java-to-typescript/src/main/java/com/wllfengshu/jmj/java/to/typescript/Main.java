@@ -13,6 +13,12 @@ public class Main {
     private static final String COCOS_BASE_PATH = "E:\\005java\\001game\\maJiang\\jmj\\client\\assets\\scripts\\server\\";
     private static final String JMJ_API_PACKAGE = "com.wllfengshu.jmj.provider.api.";
 
+    /**
+     * 入口
+     *
+     * 说明：1、如果执行发现没有class，请先maven编译一下代码让其生成class文件
+     * @param args
+     */
     public static void main(String[] args) {
         // 1生成公共类
         JavaToTypeScript.run("com.wllfengshu.jmj.common.entity.gateway", COCOS_BASE_PATH + "gateway\\");

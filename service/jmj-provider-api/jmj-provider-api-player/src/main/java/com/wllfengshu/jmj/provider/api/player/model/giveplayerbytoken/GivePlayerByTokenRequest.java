@@ -12,8 +12,6 @@ import org.springframework.lang.NonNull;
 @Data
 public class GivePlayerByTokenRequest {
 
-    public GivePlayerByTokenRequest() {}
-
     /**
      * 登陆的唯一凭证
      */

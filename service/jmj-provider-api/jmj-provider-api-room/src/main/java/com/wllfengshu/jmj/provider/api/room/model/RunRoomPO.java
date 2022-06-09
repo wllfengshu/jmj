@@ -7,7 +7,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * 房间-运行时数据库（动态）
+ * 房间-运行时数据库（用来生成房间号）
  *
  * @author wangll
  * @date 2022-06-05 17:52
@@ -19,23 +19,13 @@ public class RunRoomPO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * ID
+     * 房间号
      */
     @TableId
     private Integer roomId;
 
     /**
-     * 房间密码
+     * 创建者用户名
      */
-    private String roomPassword;
-
-    /**
-     * 玩家数量
-     */
-    private Integer playerNum;
-
-    /**
-     * 玩家集合
-     */
-    private String[] playerUsernames;
+    private String creatorUsername;
 }

@@ -21,8 +21,9 @@
         <module>jmj-hystrix-dashboard</module>
         <module>jmj-provider-api</module>
         <module>jmj-config-server</module>
-        <module>jmj-config-nat-server</module>
+        <module>jmj-config-local-server</module>
         <module>jmj-java-to-typescript</module>
+        <module>jmj-generator</module>
     </modules>
 
     <properties>

@@ -1,4 +1,4 @@
-package com.wllfengshu.jmj.config.nat.server;
+package com.wllfengshu.jmj.config.local.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

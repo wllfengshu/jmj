@@ -9,12 +9,12 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.wllfengshu.jmj.config.nat.server</groupId>
-    <artifactId>jmj-config-nat-server</artifactId>
+    <groupId>com.wllfengshu.jmj.config.local.server</groupId>
+    <artifactId>jmj-config-local-server</artifactId>
     <packaging>jar</packaging>
-    <name>jmj-config-nat-server</name>
+    <name>jmj-config-local-server</name>
     <version>1.0</version>
-    <description>配置中心</description>
+    <description>配置中心（本地）</description>
 
     <dependencies>
         <dependency>
