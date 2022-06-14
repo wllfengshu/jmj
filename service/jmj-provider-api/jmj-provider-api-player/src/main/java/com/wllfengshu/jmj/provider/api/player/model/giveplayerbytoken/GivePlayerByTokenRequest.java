@@ -1,6 +1,7 @@
 package com.wllfengshu.jmj.provider.api.player.model.giveplayerbytoken;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.lang.NonNull;
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.lang.NonNull;
  * @date 2022-05-07 9:58
  */
 @Data
+@NoArgsConstructor
 public class GivePlayerByTokenRequest {
 
     /**

@@ -1,7 +1,5 @@
 interface GatewayLoginInfo {
      // 
-     id?: number;
-     // 
      username?: string;
      // 
      nickname?: string;

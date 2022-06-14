@@ -1,0 +1,4 @@
+enum RunRoomStatusEnum {
+     DISSOLVED,
+     NORMAL
+}

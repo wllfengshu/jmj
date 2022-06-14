@@ -13,11 +13,6 @@ import lombok.Data;
 public class GatewayLoginInfo {
 
     /**
-     * ID
-     */
-    private Long id;
-
-    /**
      * 登陆名
      */
     private String username;

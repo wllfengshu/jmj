@@ -1,4 +1,4 @@
-package com.wllfengshu.jmj.provider.api.room;
+package com.wllfengshu.jmj.provider.api.room.model.createroom;
 
 /**
  * @author wangll

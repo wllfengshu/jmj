@@ -5,6 +5,7 @@ import com.wllfengshu.jmj.common.entity.provider.enumeration.CommonEnum;
 import com.wllfengshu.jmj.provider.api.player.model.logout.LogoutRequest;
 import com.wllfengshu.jmj.provider.api.player.model.logout.LogoutResponse;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -37,8 +38,8 @@ public class LogoutBiz extends AbstractInterfaceBase<LogoutRequest, LogoutRespon
 
     @Override
     public LogoutResponse doProcess(LogoutRequest request) {
-        redisTemplate.expire(REDIS_PREFIX_TOKEN_TO_PLAYER + request.getToken(), 0, TimeUnit.MILLISECONDS);
-        redisTemplate.expire(REDIS_PREFIX_USERNAME_TO_TOKEN + request.getGatewayLoginInfo().getUsername(), 0, TimeUnit.MILLISECONDS);
+        redisTemplate.expire(REDIS_PREFIX_TOKEN_TO_PLAYER + request.getToken(), NumberUtils.INTEGER_ZERO, TimeUnit.MILLISECONDS);
+        redisTemplate.expire(REDIS_PREFIX_USERNAME_TO_TOKEN + request.getGatewayLoginInfo().getUsername(), NumberUtils.INTEGER_ZERO, TimeUnit.MILLISECONDS);
         LogoutResponse response = new LogoutResponse();
         response.setBizResponseCode(CommonEnum.SUCCESS.getCode());
         return response;

@@ -39,29 +39,25 @@ public class LoginBiz extends AbstractInterfaceBase<LoginRequest, LoginResponse>
 
     @Override
     protected boolean checkRequest(LoginRequest request) {
-        return null != request
-                && StringUtils.isNotEmpty(request.getUsername())
+        return StringUtils.isNotEmpty(request.getUsername())
                 && StringUtils.isNotEmpty(request.getPassword());
     }
 
     @Override
     protected LoginResponse doProcess(LoginRequest request) {
+        final String username = request.getUsername();
         // 0检查是否已经登陆了
-        String oldToken = (String) redisTemplate.opsForValue().get(REDIS_PREFIX_USERNAME_TO_TOKEN + request.getUsername());
+        String oldToken = (String) redisTemplate.opsForValue().get(REDIS_PREFIX_USERNAME_TO_TOKEN + username);
         if (StringUtils.isNotEmpty(oldToken)) {
-            PlayerPO po = (PlayerPO) redisTemplate.opsForValue().get(REDIS_PREFIX_TOKEN_TO_PLAYER + oldToken);
-            LoginResponse response = new LoginResponse();
-            response.setBizResponseCode(CommonEnum.SUCCESS.getCode());
-            response.setToken(oldToken);
-            response.setPlayerPO(po);
             redisTemplate.expire(REDIS_PREFIX_TOKEN_TO_PLAYER + oldToken, ProviderConstant.REGISTER_TOKEN_TIMEOUT, TimeUnit.DAYS);
-            redisTemplate.expire(REDIS_PREFIX_USERNAME_TO_TOKEN + request.getUsername(), ProviderConstant.REGISTER_TOKEN_TIMEOUT, TimeUnit.DAYS);
-            return response;
+            redisTemplate.expire(REDIS_PREFIX_USERNAME_TO_TOKEN + username, ProviderConstant.REGISTER_TOKEN_TIMEOUT, TimeUnit.DAYS);
+            PlayerPO po = (PlayerPO) redisTemplate.opsForValue().get(REDIS_PREFIX_TOKEN_TO_PLAYER + oldToken);
+            return this.giveSuccessResponse(oldToken, po);
         }
 
         // 1检查用户名和密码是否匹配
         LambdaQueryWrapper<PlayerPO> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(PlayerPO::getUsername, request.getUsername());
+        wrapper.eq(PlayerPO::getUsername, username);
         wrapper.eq(PlayerPO::getPassword, request.getPassword());
         PlayerPO po = playerDAO.selectOne(wrapper);
         if (null == po) {
@@ -70,15 +66,19 @@ public class LoginBiz extends AbstractInterfaceBase<LoginRequest, LoginResponse>
             response.setBizResponseDesc(ProviderEnum.USER_NAME_AND_PASSWORD_NOT_MATCH.getDesc());
             return response;
         }
-        // 2success
+        // 2token
         String token = CustomStringUtils.giveUuid();
+        // 3cache
+        redisTemplate.opsForValue().set(REDIS_PREFIX_TOKEN_TO_PLAYER + token, po, ProviderConstant.REGISTER_TOKEN_TIMEOUT, TimeUnit.DAYS);
+        redisTemplate.opsForValue().set(REDIS_PREFIX_USERNAME_TO_TOKEN + username, token, ProviderConstant.REGISTER_TOKEN_TIMEOUT, TimeUnit.DAYS);
+        return this.giveSuccessResponse(token, po);
+    }
+
+    private LoginResponse giveSuccessResponse(String token, PlayerPO playerPO) {
         LoginResponse response = new LoginResponse();
         response.setBizResponseCode(CommonEnum.SUCCESS.getCode());
         response.setToken(token);
-        response.setPlayerPO(po);
-        // 3缓存
-        redisTemplate.opsForValue().set(REDIS_PREFIX_TOKEN_TO_PLAYER + token, po, ProviderConstant.REGISTER_TOKEN_TIMEOUT, TimeUnit.DAYS);
-        redisTemplate.opsForValue().set(REDIS_PREFIX_USERNAME_TO_TOKEN + po.getUsername(), token, ProviderConstant.REGISTER_TOKEN_TIMEOUT, TimeUnit.DAYS);
+        response.setPlayerPO(playerPO);
         return response;
     }
 }
