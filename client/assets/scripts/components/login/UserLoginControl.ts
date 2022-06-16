@@ -1,5 +1,6 @@
 import PlayerService from "../../server/PlayerService";
 import ConstantUtil from "../../utils/ConstantUtil";
+import LocalCacheUtil from "../../utils/LocalCacheUtil";
 import StringUtil from "../../utils/StringUtil";
 
 const {ccclass, property} = cc._decorator;
@@ -25,8 +26,8 @@ export default class UserLoginControl extends cc.Component {
         }
         let response = PlayerService.instance.login(request);
         if(null != response && StringUtil.isNotBlack(response.token)) {
-            cc.sys.localStorage.setItem(ConstantUtil.TOKEN, response.token);
-            cc.sys.localStorage.setItem(ConstantUtil.LOGIN_INFO, response.playerPO);
+            LocalCacheUtil.setLocalStorage(ConstantUtil.TOKEN, response.token);
+            LocalCacheUtil.setLocalStorage(ConstantUtil.LOGIN_INFO, response.playerPO);
             cc.director.loadScene("hall");
             return;
         }
